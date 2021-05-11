@@ -1,7 +1,13 @@
-import { Hero } from "../components/Hero.tsx";
+import { Hero } from "../components/organisms/Hero";
+import { LoginForm } from "../components/organisms/LoginForm";
 
 const Login = () => {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <LoginForm />
+    </>
+  );
 };
 
 export default Login;
