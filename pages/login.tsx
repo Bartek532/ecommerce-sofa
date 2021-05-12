@@ -1,6 +1,7 @@
 import { Hero } from "../components/organisms/Hero";
 import { LoginForm } from "../components/organisms/LoginForm";
 import styled from "styled-components";
+import { Layout } from "../components/organisms/Layout";
 
 const MainWrapper = styled.main`
   width: 100%;
@@ -15,10 +16,12 @@ const MainWrapper = styled.main`
 
 const Login = () => {
   return (
-    <MainWrapper>
-      <Hero />
-      <LoginForm />
-    </MainWrapper>
+    <Layout title="Login">
+      <MainWrapper>
+        <Hero />
+        <LoginForm />
+      </MainWrapper>
+    </Layout>
   );
 };
 

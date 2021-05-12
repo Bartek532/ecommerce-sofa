@@ -3,9 +3,10 @@ import { StyledButton } from "../atoms/Button/Button";
 import { StyledInputError } from "../atoms/Input/InputError";
 import { useForm } from "react-hook-form";
 import { inputValidation } from "../../utils/consts";
-import { LoginData } from "../../types";
+import { RegisterData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
+import { auth } from "../../firebase";
 
 import {
   StyledFormWrapper,
@@ -22,8 +23,12 @@ export const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const handleRegister = (data: LoginData) => {
-    console.log(data);
+  const handleRegister = async ({ email, password }: RegisterData) => {
+    try {
+      await auth.createUserWithEmailAndPassword(email, password);
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   return (
@@ -39,7 +44,7 @@ export const RegisterForm = () => {
             aria-required="true"
             {...register("name", inputValidation.other)}
           />
-          <StyledInputError>{errors?.email?.name}</StyledInputError>
+          <StyledInputError>{errors?.name?.message}</StyledInputError>
         </StyledLabel>
         <StyledLabel>
           <span className="sr-only">email</span>
@@ -59,6 +64,7 @@ export const RegisterForm = () => {
             type="password"
             aria-label="password"
             aria-required="true"
+            autoComplete="new-password"
             {...register("password", inputValidation.password)}
           />
           <StyledInputError>{errors?.password?.message}</StyledInputError>

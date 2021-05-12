@@ -7,6 +7,7 @@ import { inputValidation } from "../../utils/consts";
 import { LoginData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
+import { auth } from "../../firebase";
 
 export const StyledFormWrapper = styled.section`
   width: 100%;
@@ -59,8 +60,12 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
-  const handleLogin = (data: LoginData) => {
-    console.log(data);
+  const handleLogin = async ({ email, password }: LoginData) => {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   return (

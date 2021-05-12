@@ -1,6 +1,7 @@
 import { Hero } from "../components/organisms/Hero";
 import { RegisterForm } from "../components/organisms/RegisterForm";
 import styled from "styled-components";
+import { Layout } from "../components/organisms/Layout";
 
 const MainWrapper = styled.main`
   width: 100%;
@@ -15,10 +16,12 @@ const MainWrapper = styled.main`
 
 const Register = () => {
   return (
-    <MainWrapper>
-      <Hero />
-      <RegisterForm />
-    </MainWrapper>
+    <Layout title="Register">
+      <MainWrapper>
+        <Hero />
+        <RegisterForm />
+      </MainWrapper>
+    </Layout>
   );
 };
 
