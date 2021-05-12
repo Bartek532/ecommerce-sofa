@@ -1,5 +1,5 @@
 import { Hero } from "../components/organisms/Hero";
-import { LoginForm } from "../components/organisms/LoginForm";
+import { RegisterForm } from "../components/organisms/RegisterForm";
 import styled from "styled-components";
 
 const MainWrapper = styled.main`
@@ -13,13 +13,13 @@ const MainWrapper = styled.main`
   }
 `;
 
-const Login = () => {
+const Register = () => {
   return (
     <MainWrapper>
       <Hero />
-      <LoginForm />
+      <RegisterForm />
     </MainWrapper>
   );
 };
 
-export default Login;
+export default Register;

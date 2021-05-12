@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const HeroWrapper = styled.section`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: space-around;
@@ -11,6 +11,10 @@ const HeroWrapper = styled.section`
   flex-flow: column wrap;
   background-color: var(--yellow-600);
   padding: 4rem 4rem 12rem;
+
+  @media all and (min-width: 1000px) {
+    width: 50%;
+  }
 `;
 
 const LinkText = styled.h1`

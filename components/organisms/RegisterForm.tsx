@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { StyledInput } from "../atoms/Input/Input";
 import { StyledButton } from "../atoms/Button/Button";
 import { StyledInputError } from "../atoms/Input/InputError";
@@ -8,65 +7,40 @@ import { LoginData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
 
-export const StyledFormWrapper = styled.section`
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-flow: column wrap;
-  padding: 5rem 1rem;
-  min-height: 80vh;
+import {
+  StyledFormWrapper,
+  StyledFormHeading,
+  StyledForm,
+  StyledLabel,
+  StyledFormSignature,
+} from "./LoginForm";
 
-  @media all and (min-width: 1000px) {
-    width: 50%;
-  }
-`;
-
-export const StyledForm = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: left;
-  width: 100%;
-`;
-
-export const StyledLabel = styled.label`
-  margin: 1.2rem 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-  max-width: 30rem;
-`;
-
-export const StyledFormHeading = styled.h2`
-  text-transform: uppercase;
-  font-size: 3.9rem;
-  margin-bottom: 3rem;
-`;
-
-export const StyledFormSignature = styled.span`
-  font-size: 1.4rem;
-  margin-top: 1rem;
-`;
-
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleLogin = (data: LoginData) => {
+  const handleRegister = (data: LoginData) => {
     console.log(data);
   };
 
   return (
     <StyledFormWrapper>
-      <StyledFormHeading>sign in</StyledFormHeading>
-      <StyledForm onSubmit={handleSubmit(handleLogin)}>
+      <StyledFormHeading>sign up</StyledFormHeading>
+      <StyledForm onSubmit={handleSubmit(handleRegister)}>
+        <StyledLabel>
+          <span className="sr-only">name</span>
+          <StyledInput
+            id="name"
+            placeholder="Name"
+            aria-label="name"
+            aria-required="true"
+            {...register("name", inputValidation.other)}
+          />
+          <StyledInputError>{errors?.email?.name}</StyledInputError>
+        </StyledLabel>
         <StyledLabel>
           <span className="sr-only">email</span>
           <StyledInput
@@ -89,12 +63,12 @@ export const LoginForm = () => {
           />
           <StyledInputError>{errors?.password?.message}</StyledInputError>
         </StyledLabel>
-        <StyledButton>sign in</StyledButton>
+        <StyledButton>sign up</StyledButton>
       </StyledForm>
       <StyledFormSignature>
-        Haven't got an account?{" "}
-        <Link href="/register">
-          <StyledLink>Sign up</StyledLink>
+        Already have an account?{" "}
+        <Link href="/login">
+          <StyledLink>Sign in</StyledLink>
         </Link>
       </StyledFormSignature>
     </StyledFormWrapper>
