@@ -7,6 +7,7 @@ import { RegisterData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
 import { auth } from "../../firebase";
+import { useMainContext } from "../../context/MainContext";
 
 import {
   StyledFormWrapper,
@@ -21,13 +22,25 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
+  const { setLoading, setModal } = useMainContext();
+
   const handleRegister = async ({ email, password }: RegisterData) => {
+    setLoading(true);
     try {
       await auth.createUserWithEmailAndPassword(email, password);
+      setModal({
+        isOpen: true,
+        type: "success",
+        message: "Account was created. Log in!",
+      });
+      reset();
     } catch (e) {
-      console.log(e.message);
+      setModal({ isOpen: true, type: "error", message: e?.message });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,8 +53,7 @@ export const RegisterForm = () => {
           <StyledInput
             id="name"
             placeholder="Name"
-            aria-label="name"
-            aria-required="true"
+            autoComplete="name"
             {...register("name", inputValidation.other)}
           />
           <StyledInputError>{errors?.name?.message}</StyledInputError>
@@ -51,8 +63,7 @@ export const RegisterForm = () => {
           <StyledInput
             id="email"
             placeholder="Email"
-            aria-label="email"
-            aria-required="true"
+            autoComplete="email"
             {...register("email", inputValidation.email)}
           />
           <StyledInputError>{errors?.email?.message}</StyledInputError>
@@ -62,8 +73,6 @@ export const RegisterForm = () => {
           <StyledInput
             placeholder="Password"
             type="password"
-            aria-label="password"
-            aria-required="true"
             autoComplete="new-password"
             {...register("password", inputValidation.password)}
           />

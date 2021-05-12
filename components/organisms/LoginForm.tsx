@@ -8,6 +8,7 @@ import { LoginData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
 import { auth } from "../../firebase";
+import { useMainContext } from "../../context/MainContext";
 
 export const StyledFormWrapper = styled.section`
   width: 100%;
@@ -60,11 +61,16 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
+  const { setLoading, setModal } = useMainContext();
+
   const handleLogin = async ({ email, password }: LoginData) => {
+    setLoading(true);
     try {
       await auth.signInWithEmailAndPassword(email, password);
     } catch (e) {
-      console.log(e.message);
+      setModal({ isOpen: true, type: "error", message: e?.message });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,8 +83,7 @@ export const LoginForm = () => {
           <StyledInput
             id="email"
             placeholder="Email"
-            aria-label="email"
-            aria-required="true"
+            autoComplete="email"
             {...register("email", inputValidation.email)}
           />
           <StyledInputError>{errors?.email?.message}</StyledInputError>
@@ -88,8 +93,7 @@ export const LoginForm = () => {
           <StyledInput
             placeholder="Password"
             type="password"
-            aria-label="password"
-            aria-required="true"
+            autoComplete="current-password"
             {...register("password", inputValidation.password)}
           />
           <StyledInputError>{errors?.password?.message}</StyledInputError>

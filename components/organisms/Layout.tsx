@@ -2,6 +2,8 @@ import { memo } from "react";
 import { titleTemplate as defaultTitleTemplate } from "../../pages/_app";
 import { Loader } from "./Loader";
 import { NextSeo } from "next-seo";
+import { MainProvider } from "../../context/MainContext";
+import { Modal } from "../atoms/Modal/Modal";
 
 type LayoutProps = {
   readonly children: React.ReactNode;
@@ -13,8 +15,6 @@ export const Layout = memo<LayoutProps>(
   ({ children, title, titleTemplate = defaultTitleTemplate }) => {
     return (
       <>
-        <Loader />
-        {children}
         <NextSeo
           title={
             title ? titleTemplate.replace("%s", title) : titleTemplate.slice(4)
@@ -25,6 +25,11 @@ export const Layout = memo<LayoutProps>(
               : titleTemplate.slice(4),
           }}
         />
+        <MainProvider>
+          <Loader />
+          <Modal />
+          {children}
+        </MainProvider>
       </>
     );
   }
