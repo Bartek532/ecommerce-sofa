@@ -10,6 +10,8 @@ import { StyledLink } from "../atoms/Link/Link";
 import { auth } from "../../firebase";
 import { useMainContext } from "../../context/MainContext";
 
+import { useRouter } from "next/router";
+
 export const StyledFormWrapper = styled.section`
   width: 100%;
   display: flex;
@@ -61,12 +63,15 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
+  const router = useRouter();
+
   const { setLoading, setModal } = useMainContext();
 
   const handleLogin = async ({ email, password }: LoginData) => {
     setLoading(true);
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      router.push("/");
     } catch (e) {
       setModal({ isOpen: true, type: "error", message: e?.message });
     } finally {

@@ -30,6 +30,8 @@ export const RegisterForm = () => {
   const handleRegister = async ({ email, password }: RegisterData) => {
     setLoading(true);
     try {
+      await auth.signOut();
+      /*
       await auth.createUserWithEmailAndPassword(email, password);
       setModal({
         isOpen: true,
@@ -37,6 +39,7 @@ export const RegisterForm = () => {
         message: "Account was created. Log in!",
       });
       reset();
+      */
     } catch (e) {
       setModal({ isOpen: true, type: "error", message: e?.message });
     } finally {
