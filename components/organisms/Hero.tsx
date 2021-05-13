@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
-import Link from "next/link";
+import { HeroLink } from "../atoms/Link/HeroLink";
 
-const HeroWrapper = styled.section`
+const StyledHeroWrapper = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -17,21 +17,18 @@ const HeroWrapper = styled.section`
   }
 `;
 
-const LinkText = styled.h1`
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1.8rem;
-  align-self: flex-start;
+const StyledHeroHeading = styled.header`
   margin: 0 0 6rem 1rem;
+  align-self: flex-start;
 `;
 
 export const Hero = () => {
   return (
-    <HeroWrapper>
-      <Link href="/">
-        <LinkText>furniture? sofa!</LinkText>
-      </Link>
+    <StyledHeroWrapper>
+      <StyledHeroHeading>
+        <HeroLink />
+      </StyledHeroHeading>
       <Image src="/svg/sofa.svg" width="400" height="400" />
-    </HeroWrapper>
+    </StyledHeroWrapper>
   );
 };

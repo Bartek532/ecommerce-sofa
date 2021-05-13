@@ -1,10 +1,11 @@
 import { AuthChecker } from "../components/organisms/AuthChecker";
+import { Main } from "../components/organisms/Main";
 
 const Home = () => {
   return (
-    <AuthChecker>
-      <h1>Siema</h1>
-    </AuthChecker>
+    <>
+      <Main />
+    </>
   );
 };
 

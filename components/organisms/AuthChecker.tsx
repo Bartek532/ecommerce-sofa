@@ -13,19 +13,6 @@ export const AuthChecker = memo<AuthCheckerProps>(({ children }) => {
   auth.onAuthStateChanged(user => {
     setIsUserLoggedIn(!!user);
   });
-  /*
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setIsUserLoggedIn(!!auth.currentUser);
-    console.log(auth.currentUser, isUserLoggedIn);
-  }, [auth.currentUser]);
-
-  if (!isUserLoggedIn) {
-    router.push("/login");
-    return null;
-  }
-  */
 
   if (!userIsLoggedIn) {
     router.push("/login");
