@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 const StyledHomeSection = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   place-items: center;
   padding: 2rem 5rem;
   min-height: 95vh;
-  max-width: 100rem;
   margin: 0 auto;
 
   @media all and (min-width: 1000px) {
     min-height: 75vh;
+    max-width: 90rem;
   }
 `;
 
@@ -22,13 +22,13 @@ const StyledHomeTitle = styled.h2`
 
   &::before {
     position: absolute;
-    width: 70%;
-    height: 100%;
+    width: 50%;
+    height: 80%;
     content: "";
     background-color: var(--yellow-500);
     z-index: -1;
-    top: -25%;
-    left: -15%;
+    top: -15%;
+    left: -7%;
   }
 `;
 

@@ -3,7 +3,7 @@ import { StyledInput } from "../atoms/Input/Input";
 import { StyledButton } from "../atoms/Button/Button";
 import { StyledInputError } from "../atoms/Input/InputError";
 import { useForm } from "react-hook-form";
-import { inputValidation } from "../../utils/consts";
+import { inputValidation } from "../../lib/utils/consts";
 import { LoginData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";

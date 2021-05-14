@@ -3,6 +3,7 @@ import { titleTemplate as defaultTitleTemplate } from "../../pages/_app";
 import { Loader } from "./Loader";
 import { NextSeo } from "next-seo";
 import { MainProvider } from "../../context/MainContext";
+import { ProductProvider } from "../../context/ProductContext";
 import { Modal } from "../atoms/Modal/Modal";
 
 type LayoutProps = {
@@ -26,9 +27,11 @@ export const Layout = memo<LayoutProps>(
           }}
         />
         <MainProvider>
-          <Loader />
-          <Modal />
-          {children}
+          <ProductProvider>
+            <Loader />
+            <Modal />
+            {children}
+          </ProductProvider>
         </MainProvider>
       </>
     );

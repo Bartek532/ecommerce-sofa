@@ -1,6 +1,10 @@
 import { Header } from "../molecules/Header";
 import { HomeBanner } from "../molecules/HomeBanner";
 import styled from "styled-components";
+import { memo } from "react";
+import type { Sofa } from "../../types";
+import { ProductsList } from "../molecules/ProductsList";
+import { Preferences } from "../molecules/Preferences";
 
 const StyledMainWrapper = styled.main`
   width: 100%;
@@ -10,11 +14,17 @@ const StyledMainWrapper = styled.main`
   flex-flow: column wrap;
 `;
 
-export const Main = () => {
+type MainProps = {
+  products: Sofa[];
+};
+
+export const Main = memo<MainProps>(({ products }) => {
   return (
     <StyledMainWrapper>
       <Header />
       <HomeBanner />
+      <Preferences />
+      <ProductsList products={products} />
     </StyledMainWrapper>
   );
-};
+});
