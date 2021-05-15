@@ -74,6 +74,7 @@ export const ProductDescription = memo<ProductDescriptionProps>(
   ({ product }) => {
     const { setActiveSofaColor } = useProduct();
     const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      window.scrollTo(0, 0);
       setActiveSofaColor(e.target.value);
     };
     return (
