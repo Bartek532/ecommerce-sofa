@@ -1,9 +1,8 @@
 import { Layout } from "../components/organisms/Layout";
 import { Main } from "../components/organisms/Main";
-import { useProduct } from "../context/ProductContext";
 import { DatoCMSData } from "../lib/datocms";
-import { useEffect } from "react";
 import type { Sofa } from "../types";
+import type { GetStaticProps } from "next";
 
 const Home = ({ results }: { results: Sofa[] }) => {
   return (
@@ -15,7 +14,7 @@ const Home = ({ results }: { results: Sofa[] }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     const data = await DatoCMSData.items.all();
     return { props: { results: data }, revalidate: 1 };
@@ -24,4 +23,4 @@ export async function getStaticProps() {
       notFound: true as const,
     };
   }
-}
+};

@@ -5,6 +5,7 @@ const StyledHeroLink = styled.h1`
   text-transform: uppercase;
   font-weight: 700;
   font-size: 3rem;
+  cursor: pointer;
 `;
 
 const StyledHeroLinkQuestion = styled.span`

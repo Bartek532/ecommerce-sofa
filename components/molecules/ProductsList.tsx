@@ -1,4 +1,4 @@
-import { Product } from "../atoms/Product/Product";
+import { ProductTile } from "../atoms/Product/ProductTile";
 import type { Sofa } from "../../types";
 import { memo } from "react";
 import styled from "styled-components";
@@ -26,7 +26,7 @@ export const ProductsList = memo<ProductsListProps>(({ products }) => {
     <StyledProductsListWrapper>
       {products.length ? (
         products.map(product => {
-          return <Product product={product} key={product.id} />;
+          return <ProductTile product={product} key={product.id} />;
         })
       ) : (
         <StyledEmptyResults>

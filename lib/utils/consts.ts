@@ -27,3 +27,10 @@ export const inputValidation = {
     },
   },
 };
+
+export const sofaColors = [
+  { label: "red", color1: "e5383b" },
+  { label: "green", color1: "55a630" },
+  { label: "blue", color1: "219ebc" },
+  { label: "pink", color1: "ffafcc" },
+];

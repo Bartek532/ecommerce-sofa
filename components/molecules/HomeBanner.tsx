@@ -11,9 +11,10 @@ const StyledHomeSection = styled.section`
   margin-top: 5rem;
 
   @media all and (min-width: 1000px) {
-    min-height: 75vh;
+    min-height: 65vh;
     margin-top: 0;
     max-width: 90rem;
+    margin-bottom: 2rem;
   }
 `;
 

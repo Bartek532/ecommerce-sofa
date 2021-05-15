@@ -1,6 +1,8 @@
 import { HeroLink } from "../atoms/Link/HeroLink";
 import { StyledButton } from "../atoms/Button/Button";
 import styled from "styled-components";
+import { auth } from "../../firebase";
+import { useRouter } from "next/router";
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -11,10 +13,15 @@ const StyledHeader = styled.header`
 `;
 
 export const Header = () => {
+  const router = useRouter();
+  const handleLogout = () => {
+    auth.signOut();
+    return router.push("/login");
+  };
   return (
     <StyledHeader>
       <HeroLink />
-      <StyledButton>logout</StyledButton>
+      <StyledButton onClick={handleLogout}>logout</StyledButton>
     </StyledHeader>
   );
 };
