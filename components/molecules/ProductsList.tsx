@@ -9,16 +9,12 @@ type ProductsListProps = {
 
 const StyledProductsListWrapper = styled.section`
   width: 100%;
-  display: grid;
-  grid-gap: 3rem;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   max-width: 72rem;
-
-  @media all and (min-width: 1000px) {
-    grid-gap: 5rem;
-  }
+  margin-bottom: 3rem;
 `;
 
 export const ProductsList = memo<ProductsListProps>(({ products }) => {

@@ -1,4 +1,4 @@
-import { AuthChecker } from "../components/organisms/AuthChecker";
+import { Layout } from "../components/organisms/Layout";
 import { Main } from "../components/organisms/Main";
 import { useProduct } from "../context/ProductContext";
 import { DatoCMSData } from "../lib/datocms";
@@ -6,16 +6,10 @@ import { useEffect } from "react";
 import type { Sofa } from "../types";
 
 const Home = ({ results }: { results: Sofa[] }) => {
-  const { setProducts } = useProduct();
-
-  useEffect(() => {
-    setProducts(results);
-  }, []);
-
   return (
-    <>
-      <Main products={results} />
-    </>
+    <Layout>
+      <Main results={results} />
+    </Layout>
   );
 };
 

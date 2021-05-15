@@ -17,6 +17,9 @@ type ProductContext = {
   setMaxPrice: Dispatch<SetStateAction<number>>;
   price: number;
   setPrice: Dispatch<SetStateAction<number>>;
+  filteredProducts: Sofa[];
+  setFilteredProducts: Dispatch<SetStateAction<Sofa[]>>;
+  handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const ProductContext = createContext<ProductContext>({
@@ -28,6 +31,9 @@ const ProductContext = createContext<ProductContext>({
   setMaxPrice: () => {},
   price: 350,
   setPrice: () => {},
+  filteredProducts: [],
+  setFilteredProducts: () => {},
+  handleChangePrice: () => {},
 });
 
 export const useProduct = () => {
@@ -46,13 +52,21 @@ export const ProductProvider = ({
   children: React.ReactNode;
 }) => {
   const [products, setProducts] = useState([] as Sofa[]);
+  const [filteredProducts, setFilteredProducts] = useState([] as Sofa[]);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(2000);
   const [price, setPrice] = useState(350);
 
+  const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrice(Number(e.target.value));
+    setFilteredProducts(products.filter(product => product.cost <= price));
+  };
+
   useEffect(() => {
     setMinPrice(Math.min(...products.map(product => product.cost)));
     setMaxPrice(Math.max(...products.map(product => product.cost)));
+    setPrice(Math.max(...products.map(product => product.cost)));
+    console.log(products);
   }, [products]);
 
   return (
@@ -66,6 +80,9 @@ export const ProductProvider = ({
         setMaxPrice,
         price,
         setPrice,
+        filteredProducts,
+        setFilteredProducts,
+        handleChangePrice,
       }}
     >
       {children}

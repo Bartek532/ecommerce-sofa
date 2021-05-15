@@ -4,7 +4,56 @@ import styled from "styled-components";
 const StyledInputWrapper = styled.div`
   width: 24rem;
   margin: 2rem 1.5rem;
-  @media only screen and (min-width: 500px) {
+`;
+
+const StyledInput = styled.input`
+  cursor: pointer;
+  width: 100%;
+`;
+
+const StyledLabel = styled.label`
+  display: block;
+  font-size: 0.95rem;
+  font-weight: ${({ theme }) => theme.regular};
+  text-align: start;
+`;
+
+type RangeInputProps = {
+  name?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  minPrice: number;
+  maxPrice: number;
+  price: number;
+};
+
+export const RangeInput = memo<RangeInputProps>(
+  ({
+    name = "range",
+    minPrice = 0,
+    maxPrice = 2000,
+    price = 350,
+    onChange,
+  }) => {
+    return (
+      <StyledInputWrapper>
+        <StyledLabel htmlFor="range">
+          Price between: ${minPrice} - ${price}
+        </StyledLabel>
+        <StyledInput
+          id="range"
+          name={name}
+          value={price}
+          min={minPrice}
+          max={maxPrice}
+          onChange={onChange}
+          type="range"
+        />
+      </StyledInputWrapper>
+    );
+  }
+);
+
+/*@media only screen and (min-width: 500px) {
     width: 28rem;
   }
   @media only screen and (min-width: 700px) {
@@ -108,50 +157,4 @@ const StyledInputWrapper = styled.div`
       border: 2px solid #000;
     }
   }
-`;
-
-const StyledInput = styled.input`
-  cursor: pointer;
-  width: 100%;
-`;
-
-const StyledLabel = styled.label`
-  display: block;
-  font-size: 0.95rem;
-  font-weight: ${({ theme }) => theme.regular};
-  text-align: start;
-`;
-
-type RangeInputProps = {
-  name?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  minPrice: number;
-  maxPrice: number;
-  price: number;
-};
-
-export const RangeInput = memo<RangeInputProps>(
-  ({
-    name = "range",
-    minPrice = 0,
-    maxPrice = 2000,
-    price = 350,
-    onChange,
-  }) => {
-    return (
-      <StyledInputWrapper>
-        <StyledLabel htmlFor="range">
-          Price between: ${minPrice} - ${price}
-        </StyledLabel>
-        <StyledInput
-          id="range"
-          name={name}
-          value={price}
-          min={minPrice}
-          max={maxPrice}
-          onChange={onChange}
-        />
-      </StyledInputWrapper>
-    );
-  }
-);
+  */

@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3.2rem;
+  padding: 1rem 3.2rem 0 3.2rem;
 `;
 
 export const Header = () => {

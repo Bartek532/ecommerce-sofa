@@ -4,13 +4,21 @@ import Link from "next/link";
 const StyledHeroLink = styled.h1`
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 3rem;
+`;
+
+const StyledHeroLinkQuestion = styled.span`
+  display: block;
+  font-size: 1.6rem;
 `;
 
 export const HeroLink = () => {
   return (
     <Link href="/">
-      <StyledHeroLink>furniture? sofa!</StyledHeroLink>
+      <StyledHeroLink>
+        <StyledHeroLinkQuestion>furniture?</StyledHeroLinkQuestion>
+        sofa!
+      </StyledHeroLink>
     </Link>
   );
 };

@@ -10,6 +10,8 @@ type ProductProps = {
 const StyledProduct = styled.article`
   width: 100%;
   position: relative;
+  flex: 0 1 30rem;
+  margin: 2rem;
 `;
 
 const StyledProductFlashcard = styled.h3`
@@ -28,7 +30,6 @@ const StyledProductFlashcardCost = styled.span`
 `;
 
 export const Product = memo<ProductProps>(({ product }) => {
-  console.log(product);
   return (
     <StyledProduct>
       <Image
