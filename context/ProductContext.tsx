@@ -23,6 +23,8 @@ type ProductContext = {
   setSearchQuery: Dispatch<SetStateAction<string>>;
   productsTypes: string[];
   setProductsTypes: Dispatch<SetStateAction<string[]>>;
+  activeSofaColor: string;
+  setActiveSofaColor: Dispatch<SetStateAction<string>>;
   handleChangeSearchQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSelectProductTypes: (
@@ -45,6 +47,8 @@ const ProductContext = createContext<ProductContext>({
   setSearchQuery: () => {},
   productsTypes: [],
   setProductsTypes: () => {},
+  activeSofaColor: "yellow",
+  setActiveSofaColor: () => {},
   handleChangeSearchQuery: () => {},
   handleChangePrice: () => {},
   handleSelectProductTypes: () => {},
@@ -75,6 +79,7 @@ export const ProductProvider = ({
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [price, setPrice] = useState(350);
+  const [activeSofaColor, setActiveSofaColor] = useState("yellow");
 
   const handleSelectProductTypes = (
     types: { value: string; label: string }[]
@@ -152,6 +157,8 @@ export const ProductProvider = ({
         setSearchQuery,
         productsTypes,
         setProductsTypes,
+        activeSofaColor,
+        setActiveSofaColor,
         handleChangeSearchQuery,
         handleChangePrice,
         handleSelectProductTypes,

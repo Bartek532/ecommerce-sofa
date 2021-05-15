@@ -1,10 +1,11 @@
 import { memo } from "react";
 import styled from "styled-components";
 import { sofaColors } from "../../lib/utils/consts";
+import { useProduct } from "../../context/ProductContext";
 
 type ColorSelectProps = {
   name?: string;
-  onChange: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const StyledColorSelectWrapper = styled.div`
@@ -17,13 +18,15 @@ const StyledColorSelectWrapper = styled.div`
   }
 `;
 
-const StyledInputLabel = styled.label`
+const StyledInputLabel = styled.label<{ isActive: boolean }>`
   display: block;
   position: relative;
   cursor: pointer;
   user-select: none;
   padding: 0.2rem;
-  border: 5px dashed var(--gray-100);
+  border-width: 5px;
+  border-color: var(--gray-100);
+  border-style: ${props => (props.isActive ? "solid" : "dashed")};
   margin: 0.5rem;
 
   @media all and (min-width: 520px) {
@@ -46,13 +49,23 @@ const StyledColorField = styled.div<{ color: string }>`
 `;
 
 export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
+  const { activeSofaColor } = useProduct();
   return (
-    <StyledColorSelectWrapper onChange={onChange}>
-      {sofaColors.map(color => {
+    <StyledColorSelectWrapper>
+      {sofaColors.slice(1).map(color => {
         return (
-          <StyledInputLabel key={color.label}>
+          <StyledInputLabel
+            key={color.label}
+            isActive={activeSofaColor === color.label}
+          >
             <span className="sr-only">{color.label}</span>
-            <StyledInput type="radio" value={color.label} name={name} />
+            <StyledInput
+              type="checkbox"
+              value={color.label}
+              name={name}
+              onChange={onChange}
+              checked={activeSofaColor === color.label}
+            />
             <StyledColorField color={"#" + color.color1}></StyledColorField>
           </StyledInputLabel>
         );

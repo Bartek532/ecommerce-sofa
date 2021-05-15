@@ -3,6 +3,7 @@ import type { Sofa } from "../../types";
 import styled from "styled-components";
 import { ColorSelect } from "../molecules/ColorSelect";
 import { StyledButton } from "../atoms/Button/Button";
+import { useProduct } from "../../context/ProductContext";
 
 type ProductDescriptionProps = {
   product: Sofa;
@@ -71,8 +72,9 @@ const StyledProductCost = styled.span`
 
 export const ProductDescription = memo<ProductDescriptionProps>(
   ({ product }) => {
-    const handleColorChange = (e: any) => {
-      console.log(e.target.value);
+    const { setActiveSofaColor } = useProduct();
+    const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setActiveSofaColor(e.target.value);
     };
     return (
       <StyledProductDescription>
