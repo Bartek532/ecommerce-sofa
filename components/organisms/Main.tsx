@@ -7,7 +7,15 @@ import { ProductsList } from "../molecules/ProductsList";
 import { Preferences } from "../molecules/Preferences";
 import { useProduct } from "../../context/ProductContext";
 
-const StyledMainWrapper = styled.main`
+const StyledMainWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+`;
+
+const StyledMainContent = styled.main`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -20,19 +28,20 @@ type MainProps = {
 };
 
 export const Main = memo<MainProps>(({ results }) => {
-  const { setProducts, products, filteredProducts } = useProduct();
+  const { setProducts, setFilteredProducts, filteredProducts } = useProduct();
 
   useEffect(() => {
     setProducts(results);
+    setFilteredProducts(results);
   }, []);
   return (
     <StyledMainWrapper>
       <Header />
-      <HomeBanner />
-      <Preferences />
-      <ProductsList
-        products={filteredProducts.length ? filteredProducts : products}
-      />
+      <StyledMainContent>
+        <HomeBanner />
+        <Preferences />
+        <ProductsList products={filteredProducts} />
+      </StyledMainContent>
     </StyledMainWrapper>
   );
 });

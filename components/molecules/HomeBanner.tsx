@@ -6,11 +6,13 @@ const StyledHomeSection = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   place-items: center;
   padding: 2rem 5rem;
-  min-height: 95vh;
+  min-height: 80vh;
   margin: 0 auto;
+  margin-top: 5rem;
 
   @media all and (min-width: 1000px) {
     min-height: 75vh;
+    margin-top: 0;
     max-width: 90rem;
   }
 `;
@@ -19,16 +21,17 @@ const StyledHomeTitle = styled.h2`
   font-size: 3.7rem;
   line-height: 4.8rem;
   position: relative;
+  max-width: 40rem;
 
   &::before {
     position: absolute;
-    width: 50%;
+    width: 60%;
     height: 80%;
     content: "";
     background-color: var(--yellow-500);
     z-index: -1;
     top: -15%;
-    left: -7%;
+    left: -10%;
   }
 `;
 
@@ -36,7 +39,7 @@ export const HomeBanner = () => {
   return (
     <StyledHomeSection>
       <StyledHomeTitle>Welcome to the world of convenience!</StyledHomeTitle>
-      <Image src="/svg/sofa.svg" width="500" height="500" />
+      <Image src="/svg/sofa.svg" width="450" height="450" />
     </StyledHomeSection>
   );
 };

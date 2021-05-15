@@ -28,7 +28,7 @@ export const Hero = () => {
       <StyledHeroHeading>
         <HeroLink />
       </StyledHeroHeading>
-      <Image src="/svg/sofa.svg" width="400" height="400" />
+      <Image src="/svg/sofa.svg" width="450" height="450" />
     </StyledHeroWrapper>
   );
 };

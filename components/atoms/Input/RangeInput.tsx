@@ -9,13 +9,76 @@ const StyledInputWrapper = styled.div`
 const StyledInput = styled.input`
   cursor: pointer;
   width: 100%;
+  -webkit-appearance: none;
+  background: none;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: var(--yellow-600);
+    position: relative;
+    cursor: pointer;
+    margin-top: -6.5px;
+  }
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: var(--yellow-600);
+    position: relative;
+    cursor: pointer;
+    margin-top: -6.5px;
+  }
+
+  &::-ms-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: var(--yellow-600);
+    position: relative;
+    cursor: pointer;
+    margin-top: -6.5px;
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 5px;
+    background-color: var(--gray-100);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  &::-moz-range-track {
+    height: 5px;
+    background-color: var(--gray-100);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  &::-ms-track {
+    height: 5px;
+    background-color: var(--gray-100);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
 `;
 
 const StyledLabel = styled.label`
   display: block;
-  font-size: 0.95rem;
-  font-weight: ${({ theme }) => theme.regular};
-  text-align: start;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
 `;
 
 type RangeInputProps = {
@@ -24,6 +87,7 @@ type RangeInputProps = {
   minPrice: number;
   maxPrice: number;
   price: number;
+  step?: number;
 };
 
 export const RangeInput = memo<RangeInputProps>(
@@ -32,6 +96,7 @@ export const RangeInput = memo<RangeInputProps>(
     minPrice = 0,
     maxPrice = 2000,
     price = 350,
+    step = 1,
     onChange,
   }) => {
     return (
@@ -45,6 +110,7 @@ export const RangeInput = memo<RangeInputProps>(
           value={price}
           min={minPrice}
           max={maxPrice}
+          step={step}
           onChange={onChange}
           type="range"
         />
@@ -52,109 +118,3 @@ export const RangeInput = memo<RangeInputProps>(
     );
   }
 );
-
-/*@media only screen and (min-width: 500px) {
-    width: 28rem;
-  }
-  @media only screen and (min-width: 700px) {
-    width: 24rem;
-    margin: 0rem 1.5rem;
-  }
-  input[type="range"] {
-    -webkit-appearance: none;
-    background: none;
-    cursor: pointer;
-  }
-  input[type="range"]::-webkit-slider-runnable-track {
-    height: 5px;
-    background: ${({ theme }) => theme.secondaryColor};
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  input[type="range"]::-ms-track {
-    height: 5px;
-    background: ${({ theme }) => theme.secondaryColor};
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  input[type="range"]::-moz-range-track {
-    height: 5px;
-    background: ${({ theme }) => theme.secondaryColor};
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.fontColorPrimary};
-    margin-top: -5px;
-    position: relative;
-    cursor: pointer;
-  }
-  input[type="range"]::-ms-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.fontColorPrimary};
-    margin-top: -5px;
-    position: relative;
-    cursor: pointer;
-  }
-  input[type="range"]::-moz-range-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.fontColorPrimary};
-    margin-top: -5px;
-    position: relative;
-    cursor: pointer;
-  }
-  input[type="range"]:focus {
-    &::-webkit-slider-thumb:after {
-      position: absolute;
-      cursor: pointer;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #eee;
-      border-radius: 5px;
-      color: ${({ theme }) => theme.fontColorPrimary};
-      padding: 5px 10px;
-      border: 2px solid ${({ theme }) => theme.fontColorPrimary};
-    }
-    &::-ms-thumb:after {
-      cursor: pointer;
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #eee;
-      border-radius: 5px;
-      color: ${({ theme }) => theme.fontColorPrimary};
-      padding: 5px 10px;
-      border: 2px solid ${({ theme }) => theme.fontColorPrimary};
-    }
-    &::-moz-range-thumb:after {
-      cursor: pointer;
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #eee;
-      border-radius: 5px;
-      color: #000;
-      padding: 5px 10px;
-      border: 2px solid #000;
-    }
-  }
-  */

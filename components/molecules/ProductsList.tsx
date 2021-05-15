@@ -16,13 +16,23 @@ const StyledProductsListWrapper = styled.section`
   max-width: 72rem;
   margin-bottom: 3rem;
 `;
+const StyledEmptyResults = styled.p`
+  margin: 2rem 0;
+  font-size: 1.8rem;
+`;
 
 export const ProductsList = memo<ProductsListProps>(({ products }) => {
   return (
     <StyledProductsListWrapper>
-      {products.map(product => {
-        return <Product product={product} key={product.id} />;
-      })}
+      {products.length ? (
+        products.map(product => {
+          return <Product product={product} key={product.id} />;
+        })
+      ) : (
+        <StyledEmptyResults>
+          No products matches your search &#128530;
+        </StyledEmptyResults>
+      )}
     </StyledProductsListWrapper>
   );
 });

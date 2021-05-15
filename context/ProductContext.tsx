@@ -19,7 +19,15 @@ type ProductContext = {
   setPrice: Dispatch<SetStateAction<number>>;
   filteredProducts: Sofa[];
   setFilteredProducts: Dispatch<SetStateAction<Sofa[]>>;
+  searchQuery: string;
+  setSearchQuery: Dispatch<SetStateAction<string>>;
+  productsTypes: string[];
+  setProductsTypes: Dispatch<SetStateAction<string[]>>;
+  handleChangeSearchQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSelectProductTypes: (
+    options: { value: string; label: string }[]
+  ) => void;
 };
 
 const ProductContext = createContext<ProductContext>({
@@ -33,7 +41,13 @@ const ProductContext = createContext<ProductContext>({
   setPrice: () => {},
   filteredProducts: [],
   setFilteredProducts: () => {},
+  searchQuery: "",
+  setSearchQuery: () => {},
+  productsTypes: [],
+  setProductsTypes: () => {},
+  handleChangeSearchQuery: () => {},
   handleChangePrice: () => {},
+  handleSelectProductTypes: () => {},
 });
 
 export const useProduct = () => {
@@ -55,18 +69,70 @@ export const ProductProvider = ({
   const [filteredProducts, setFilteredProducts] = useState([] as Sofa[]);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(2000);
+  const [productsTypes, setProductsTypes] = useState([] as string[]);
+  const [selectedProductTypes, setSelectedProductTypes] = useState(
+    [] as string[]
+  );
+  const [searchQuery, setSearchQuery] = useState("");
   const [price, setPrice] = useState(350);
+
+  const handleSelectProductTypes = (
+    types: { value: string; label: string }[]
+  ) => {
+    setSelectedProductTypes(types.map(type => type.value));
+  };
+
+  const handleFilterByTypes = () => {
+    setFilteredProducts(
+      products.filter(product => {
+        if (!selectedProductTypes.length) {
+          return product;
+        }
+
+        if (selectedProductTypes.includes(product.sofaType)) {
+          return product;
+        }
+      })
+    );
+  };
+
+  useEffect(() => {
+    handleFilterByTypes();
+  }, [selectedProductTypes]);
+
+  const handleFilterProductsByName = () => {
+    setFilteredProducts(
+      products.filter(product =>
+        product.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+      )
+    );
+  };
+
+  const handleChangeSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  useEffect(() => {
+    handleFilterProductsByName();
+  }, [searchQuery]);
+
+  const handleFilterProductsByPrice = () => {
+    setFilteredProducts(products.filter(product => product.cost <= price));
+  };
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(Number(e.target.value));
-    setFilteredProducts(products.filter(product => product.cost <= price));
   };
+
+  useEffect(() => {
+    handleFilterProductsByPrice();
+  }, [price]);
 
   useEffect(() => {
     setMinPrice(Math.min(...products.map(product => product.cost)));
     setMaxPrice(Math.max(...products.map(product => product.cost)));
     setPrice(Math.max(...products.map(product => product.cost)));
-    console.log(products);
+    setProductsTypes([...new Set(products.map(product => product.sofaType))]);
   }, [products]);
 
   return (
@@ -82,7 +148,13 @@ export const ProductProvider = ({
         setPrice,
         filteredProducts,
         setFilteredProducts,
+        searchQuery,
+        setSearchQuery,
+        productsTypes,
+        setProductsTypes,
+        handleChangeSearchQuery,
         handleChangePrice,
+        handleSelectProductTypes,
       }}
     >
       {children}
