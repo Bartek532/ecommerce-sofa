@@ -26,6 +26,7 @@ const StyledProductDescription = styled.section`
 const StyledProductName = styled.h1`
   font-size: 4rem;
   position: relative;
+  margin: 1.5rem 0;
 
   &::after {
     position: absolute;
@@ -36,6 +37,10 @@ const StyledProductName = styled.h1`
     left: -15%;
     background-color: var(--yellow-500);
     z-index: -1;
+  }
+
+  @media all and (min-width: 1000px) {
+    margin: 0;
   }
 `;
 
@@ -57,6 +62,7 @@ const StyledProductDescriptionText = styled.p`
 const StyledProductColorSelectTitle = styled.h2`
   align-self: flex-start;
   font-weight: normal;
+  font-size: 2.2rem;
 `;
 
 const StyledProductOperations = styled.div`
@@ -67,7 +73,8 @@ const StyledProductOperations = styled.div`
 
 const StyledProductCost = styled.span`
   font-weight: bold;
-  margin-right: 1.5rem;
+  margin-right: 1.8rem;
+  font-size: 1.8rem;
 `;
 
 export const ProductDescription = memo<ProductDescriptionProps>(

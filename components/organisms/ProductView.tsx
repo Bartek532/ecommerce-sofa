@@ -1,5 +1,5 @@
 import type { Sofa } from "../../types";
-import { Hero } from "../molecules/Hero";
+import { Hero } from "./Hero";
 import { ProductDescription } from "./ProductDescription";
 import { memo } from "react";
 import styled from "styled-components";

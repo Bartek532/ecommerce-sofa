@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { HeroLink } from "../atoms/Link/HeroLink";
 import { StyledButton } from "../atoms/Button/Button";
+import { Cart } from "../molecules/Cart";
 import { memo, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { auth } from "../../firebase";
@@ -59,6 +60,12 @@ const StyledHeroImage = styled.div`
   }
 `;
 
+const StyledLeftHeroPannel = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Hero = memo<HeroProps>(({ isHome = true }) => {
   const router = useRouter();
   const { activeSofaColor } = useProduct();
@@ -88,9 +95,17 @@ export const Hero = memo<HeroProps>(({ isHome = true }) => {
       ) : (
         <StyledHeroHeader>
           <StyledBackBtn onClick={handleGoBack}>
-            <Image src="/svg/back.svg" width="40" height="40" />
+            <Image
+              src="/svg/back.svg"
+              width="40"
+              height="40"
+              alt="arrow-left"
+            />
           </StyledBackBtn>
-          <StyledButton onClick={handleLogout}>logout</StyledButton>
+          <StyledLeftHeroPannel>
+            <Cart />
+            <StyledButton onClick={handleLogout}>logout</StyledButton>
+          </StyledLeftHeroPannel>
         </StyledHeroHeader>
       )}
       <StyledHeroImage>

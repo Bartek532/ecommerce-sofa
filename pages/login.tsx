@@ -1,4 +1,4 @@
-import { Hero } from "../components/molecules/Hero";
+import { Hero } from "../components/organisms/Hero";
 import { LoginForm } from "../components/organisms/LoginForm";
 import styled from "styled-components";
 import { Layout } from "../components/organisms/Layout";

@@ -29,6 +29,10 @@ const StyledInputLabel = styled.label<{ isActive: boolean }>`
   border-style: ${props => (props.isActive ? "solid" : "dashed")};
   margin: 0.5rem;
 
+  &:focus-within {
+    border-color: lightgray;
+  }
+
   @media all and (min-width: 520px) {
     margin: 0.5rem 1rem;
   }
