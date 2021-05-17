@@ -4,6 +4,9 @@ import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import { MainProvider } from "../context/MainContext";
+import { ProductProvider } from "../context/ProductContext";
+import { CartProvider } from "../context/CartContext";
 
 const meta = {
   title: "Sofa App",
@@ -42,7 +45,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
         />
       </Head>
-      <Component {...pageProps} />
+      <MainProvider>
+        <ProductProvider>
+          <CartProvider>
+            <Component {...pageProps} />
+          </CartProvider>
+        </ProductProvider>
+      </MainProvider>
     </>
   );
 }

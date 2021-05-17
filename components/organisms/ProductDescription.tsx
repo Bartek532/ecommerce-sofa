@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { ColorSelect } from "../molecules/ColorSelect";
 import { StyledButton } from "../atoms/Button/Button";
 import { useProduct } from "../../context/ProductContext";
+import { useCart } from "../../context/CartContext";
 
 type ProductDescriptionProps = {
   product: Sofa;
@@ -84,6 +85,8 @@ export const ProductDescription = memo<ProductDescriptionProps>(
       window.scrollTo(0, 0);
       setActiveSofaColor(e.target.value);
     };
+
+    const { handleAddToCart } = useCart();
     return (
       <StyledProductDescription>
         <StyledProductName>{product.name}</StyledProductName>
@@ -100,7 +103,9 @@ export const ProductDescription = memo<ProductDescriptionProps>(
 
         <StyledProductOperations>
           <StyledProductCost>${product.cost}</StyledProductCost>
-          <StyledButton>Add to cart</StyledButton>
+          <StyledButton onClick={() => handleAddToCart(product)}>
+            Add to cart
+          </StyledButton>
         </StyledProductOperations>
       </StyledProductDescription>
     );

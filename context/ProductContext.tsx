@@ -69,13 +69,13 @@ export const ProductProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [products, setProducts] = useState([] as Sofa[]);
-  const [filteredProducts, setFilteredProducts] = useState([] as Sofa[]);
+  const [products, setProducts] = useState<Sofa[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Sofa[]>([]);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(2000);
-  const [productsTypes, setProductsTypes] = useState([] as string[]);
-  const [selectedProductTypes, setSelectedProductTypes] = useState(
-    [] as string[]
+  const [productsTypes, setProductsTypes] = useState<string[]>([]);
+  const [selectedProductTypes, setSelectedProductTypes] = useState<string[]>(
+    []
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [price, setPrice] = useState(350);
