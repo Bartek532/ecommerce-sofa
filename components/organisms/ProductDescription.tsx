@@ -12,7 +12,7 @@ type ProductDescriptionProps = {
 const StyledProductDescription = styled.section`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-flow: column wrap;
   padding: 5rem 4rem;

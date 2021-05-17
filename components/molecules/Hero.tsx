@@ -52,6 +52,7 @@ const StyledBackBtn = styled.button`
 
 const StyledHeroImage = styled.div`
   width: 100%;
+  max-width: 35rem;
   svg {
     width: 100%;
     height: 100%;
@@ -70,11 +71,11 @@ export const Hero = memo<HeroProps>(({ isHome = true }) => {
     return router.push("/login");
   };
 
-  const [selectedPalette, setSelectedPalette] = useState(sofaColors[0]);
+  const [selectedPalette, setSelectedPalette] = useState(sofaColors[0].palette);
 
   useEffect(() => {
     setSelectedPalette(
-      sofaColors.find(color => color.label === activeSofaColor)!
+      sofaColors.find(color => color.label === activeSofaColor)!.palette
     );
   }, [activeSofaColor]);
 
@@ -102,21 +103,21 @@ export const Hero = memo<HeroProps>(({ isHome = true }) => {
         >
           <path
             d="m80 288v-128a32 32 0 0 1 32-32h288a32 32 0 0 1 32 32v128z"
-            fill={"#" + selectedPalette.color4}
+            fill={"#" + selectedPalette.backrest}
           />
           <path
             d="m424.47389 336a32 32 0 0 0 30.54336-22.4552l31.726-101.52319a27.6089 27.6089 0 0 0 1.25675-8.23501v-.1778a27.6088 27.6088 0 0 0 -27.6088-27.6088 27.6088 27.6088 0 0 0 -26.38791 19.48944l-26.00329 84.51056h-304l-26.00325-84.51056a27.6088 27.6088 0 0 0 -26.38791-19.48944 27.6088 27.6088 0 0 0 -27.60884 27.6088v.1778a27.6089 27.6089 0 0 0 1.25675 8.235l31.726 101.52319a32 32 0 0 0 30.54336 22.45521z"
-            fill={"#" + selectedPalette.color1}
+            fill={"#" + selectedPalette.main}
           />
           <path
             d="m128 240h104a24 24 0 0 1 24 24v16a0 0 0 0 1 0 0h-152a0 0 0 0 1 0 0v-16a24 24 0 0 1 24-24z"
-            fill={"#" + selectedPalette.color3}
+            fill={"#" + selectedPalette.leftPillow}
           />
           <path
             d="m280 240h104a24 24 0 0 1 24 24v16a0 0 0 0 1 0 0h-152a0 0 0 0 1 0 0v-16a24 24 0 0 1 24-24z"
-            fill={"#" + selectedPalette.color2}
+            fill={"#" + selectedPalette.rightPillow}
           />
-          <g fill={"#" + selectedPalette.color5}>
+          <g fill={"#" + selectedPalette.dots}>
             <path d="m136 176h16v16h-16z" />
             <path d="m192 176h16v16h-16z" />
             <path d="m248 176h16v16h-16z" />

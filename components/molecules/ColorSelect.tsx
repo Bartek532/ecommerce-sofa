@@ -66,7 +66,9 @@ export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
               onChange={onChange}
               checked={activeSofaColor === color.label}
             />
-            <StyledColorField color={"#" + color.color1}></StyledColorField>
+            <StyledColorField
+              color={"#" + color.palette.main}
+            ></StyledColorField>
           </StyledInputLabel>
         );
       })}

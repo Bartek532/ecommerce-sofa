@@ -31,21 +31,52 @@ export const inputValidation = {
 export const sofaColors = [
   {
     label: "yellow",
-    color1: "fac623",
-    color2: "eda600",
-    color3: "f6bb00",
-    color4: "de9400",
-    color5: "cf8300",
+    palette: {
+      main: "fac623",
+      leftPillow: "eda600",
+      rightPillow: "f6bb00",
+      backrest: "de9400",
+      dots: "cf8300",
+    },
   },
-  { label: "red", color1: "e5383b" },
+  {
+    label: "red",
+    palette: {
+      main: "e5383b",
+      leftPillow: "ba181b",
+      rightPillow: "e74a4d",
+      backrest: "eb3134",
+      dots: "a4161a",
+    },
+  },
   {
     label: "green",
-    color1: "80b918",
-    color2: "2b9348",
-    color3: "aacc00",
-    color4: "55a630",
-    color5: "0a6c2d",
+    palette: {
+      main: "80b918",
+      leftPillow: "2b9348",
+      rightPillow: "aacc00",
+      backrest: "55a630",
+      dots: "0a6c2d",
+    },
   },
-  { label: "blue", color1: "219ebc" },
-  { label: "pink", color1: "ffafcc" },
+  {
+    label: "blue",
+    palette: {
+      main: "219ebc",
+      leftPillow: "126782",
+      rightPillow: "8ecae6",
+      backrest: "0096c7",
+      dots: "0a4c65",
+    },
+  },
+  {
+    label: "pink",
+    palette: {
+      main: "ffafcc",
+      leftPillow: "f78bb2",
+      rightPillow: "ffc8dd",
+      backrest: "fc9abe",
+      dots: "fc629a",
+    },
+  },
 ];
