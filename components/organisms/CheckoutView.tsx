@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Hero } from "./Hero";
 import { CheckoutList } from "../atoms/List/CheckoutList";
 import { useCart } from "../../context/CartContext";
+import { useWindowSize } from "../../lib/utils/hooks";
+import { Header } from "../molecules/Header";
 
 const StyledCheckoutViewWrapper = styled.div`
   width: 100%;
@@ -16,9 +18,10 @@ const StyledCheckoutViewWrapper = styled.div`
 
 export const CheckoutView = () => {
   const { cartItems } = useCart();
+  const { width } = useWindowSize();
   return (
     <StyledCheckoutViewWrapper>
-      <Hero isHome={false} />
+      {width < 1000 ? <Header /> : <Hero isHome={false} />}
       <CheckoutList cartItems={cartItems} />
     </StyledCheckoutViewWrapper>
   );

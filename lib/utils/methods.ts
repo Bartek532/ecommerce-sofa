@@ -26,7 +26,7 @@ export const removeProductFromCart = (
 ) => {
   const isProductInCart = cartItems.find(({ id }) => id === productToRemove.id);
 
-  if (isProductInCart?.quantity === 1) {
+  if (Number(isProductInCart?.quantity) <= 1) {
     return cartItems.filter(({ id }) => id !== productToRemove.id);
   }
 
@@ -35,4 +35,27 @@ export const removeProductFromCart = (
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem;
   });
+};
+
+export const changeProductQuantity = (
+  cartItems: (Sofa & { quantity: number })[],
+  product: Sofa,
+  quantity: number
+) => {
+  const availableQuantity = quantity > 99 ? 99 : quantity;
+
+  return cartItems.map(cartItem => {
+    return cartItem.id === product.id
+      ? { ...cartItem, quantity: availableQuantity }
+      : cartItem;
+  });
+};
+
+export const calculateTotalCartItemsCost = (
+  cartItems: (Sofa & { quantity: number })[]
+) => {
+  return cartItems.reduce(
+    (acc, { quantity, cost }) => acc + quantity * cost,
+    0
+  );
 };

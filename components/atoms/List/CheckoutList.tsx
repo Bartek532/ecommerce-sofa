@@ -1,7 +1,10 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import type { Sofa } from "../../../types";
 import styled from "styled-components";
 import Image from "next/image";
+import { useCart } from "../../../context/CartContext";
+import Link from "next/link";
+import { StyledButton } from "../Button/Button";
 
 type CheckoutListProps = {
   cartItems: (Sofa & { quantity: number })[];
@@ -13,10 +16,13 @@ const StyledCheckoutListWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-flow: column wrap;
-  align-self: flex-start;
   padding: 4rem 0;
+  @media all and (min-width: 350px) {
+    padding: 4rem 2rem;
+  }
   @media all and (min-width: 1000px) {
     width: 50%;
+    padding: 0 3rem;
   }
 `;
 
@@ -24,14 +30,37 @@ const StyledCheckoutList = styled.ul`
   list-style-type: none;
   padding: 0;
   width: 100%;
+  overflow-y: scroll;
+  min-height: 50vh;
+  max-height: 75vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  max-width: 60rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledCheckoutListItem = styled.li`
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr 1fr;
+  justify-items: center;
   align-items: center;
-  padding: 0 1rem;
+  padding: 1rem;
+
+  @media all and (min-width: 700px) {
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr;
+  }
+
+  @media all and (min-width: 1000px) {
+    grid-template-columns: 3fr 1fr 2fr 1fr;
+  }
+
+  @media all and (min-width: 1250px) {
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr;
+  }
 `;
 
 const StyledItemImage = styled.div`
@@ -50,7 +79,17 @@ const StyledItemImage = styled.div`
   }
 `;
 
-const StyledItemName = styled.h3``;
+const StyledNameLink = styled.a`
+  justify-self: start;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media all and (min-width: 700px) {
+    justify-self: center;
+  }
+`;
 
 const StyledInputLabel = styled.label`
   input[type="number"] {
@@ -76,14 +115,29 @@ const StyledQuantityInput = styled.input`
   }
 `;
 
-const StyledItemTotalCost = styled.span``;
-
 const StyledRemoveButton = styled.button`
   border: 0 none;
   background-color: transparent;
+  cursor: pointer;
+`;
+
+const StyledCheckoutSummary = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  padding-right: 4rem;
+`;
+
+const StyledTotalCost = styled.span`
+  font-weight: bold;
+  margin-right: 1.5rem;
 `;
 
 export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
+  const { handleChangeProductQuantity, handleRemoveFromCart, getTotalCost } =
+    useCart();
+
   return (
     <StyledCheckoutListWrapper>
       <StyledCheckoutList>
@@ -98,15 +152,29 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
                   height="100"
                 />
               </StyledItemImage>
-              <StyledItemName>{cartItem.name}</StyledItemName>
+              <Link href={`/products/${cartItem.id}`}>
+                <StyledNameLink>
+                  <h3>{cartItem.name}</h3>
+                </StyledNameLink>
+              </Link>
               <StyledInputLabel>
                 <span className="sr-only">quantity</span>
-                <StyledQuantityInput value={99} type="number" />
+                <StyledQuantityInput
+                  value={cartItem.quantity}
+                  type="number"
+                  onChange={e =>
+                    handleChangeProductQuantity(
+                      cartItem,
+                      Number(e.target.value)
+                    )
+                  }
+                  max="99"
+                />
               </StyledInputLabel>
-              <StyledItemTotalCost>
-                ${cartItem.quantity * cartItem.cost}
-              </StyledItemTotalCost>
-              <StyledRemoveButton>
+              <span>${cartItem.quantity * cartItem.cost}</span>
+              <StyledRemoveButton
+                onClick={() => handleRemoveFromCart(cartItem)}
+              >
                 <Image
                   src="/svg/close.svg"
                   width="20"
@@ -118,6 +186,10 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
           );
         })}
       </StyledCheckoutList>
+      <StyledCheckoutSummary>
+        <StyledTotalCost>${getTotalCost()}</StyledTotalCost>
+        <StyledButton>Pay now</StyledButton>
+      </StyledCheckoutSummary>
     </StyledCheckoutListWrapper>
   );
 });

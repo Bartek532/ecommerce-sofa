@@ -1,17 +1,26 @@
 import { createContext, useContext, useState } from "react";
 import type { Sofa } from "../types";
-import { addProductToCart, removeProductFromCart } from "../lib/utils/methods";
+import {
+  addProductToCart,
+  removeProductFromCart,
+  changeProductQuantity,
+  calculateTotalCartItemsCost,
+} from "../lib/utils/methods";
 
 type CartContext = {
   cartItems: (Sofa & { quantity: number })[];
   handleAddToCart: (product: Sofa) => void;
   handleRemoveFromCart: (product: Sofa) => void;
+  handleChangeProductQuantity: (product: Sofa, quantity: number) => void;
+  getTotalCost: () => number;
 };
 
 const CartContext = createContext<CartContext>({
   cartItems: [],
   handleAddToCart: () => {},
   handleRemoveFromCart: () => {},
+  handleChangeProductQuantity: () => {},
+  getTotalCost: () => 0,
 });
 
 export const useCart = () => {
@@ -37,9 +46,25 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCartItems(cartItems => removeProductFromCart(cartItems, product));
   };
 
+  const handleChangeProductQuantity = (product: Sofa, quantity: number) => {
+    setCartItems(cartItems =>
+      changeProductQuantity(cartItems, product, quantity)
+    );
+  };
+
+  const getTotalCost = () => {
+    return calculateTotalCartItemsCost(cartItems);
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartItems, handleAddToCart, handleRemoveFromCart }}
+      value={{
+        cartItems,
+        handleAddToCart,
+        handleRemoveFromCart,
+        handleChangeProductQuantity,
+        getTotalCost,
+      }}
     >
       {children}
     </CartContext.Provider>
