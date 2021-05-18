@@ -5,7 +5,7 @@ const StyledHomeSection = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   place-items: center;
-  padding: 2rem 5rem;
+  padding: 2rem 3rem;
   min-height: 80vh;
   margin: 0 auto;
   margin-top: 5rem;
@@ -15,6 +15,10 @@ const StyledHomeSection = styled.section`
     margin-top: 0;
     max-width: 90rem;
     margin-bottom: 2rem;
+  }
+
+  @media all and (min-width: 360px) {
+    padding: 2rem 5rem;
   }
 `;
 

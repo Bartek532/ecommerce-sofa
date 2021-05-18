@@ -1,10 +1,10 @@
-import type { Sofa } from "../../types";
+import type { Sofa } from "../../../types";
 import { memo } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { StyledButton } from "../atoms/Button/Button";
+import { StyledButton } from "../Button/Button";
 import Link from "next/link";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../../context/CartContext";
 
 type CartListProps = {
   cartItems: (Sofa & {
@@ -53,7 +53,7 @@ const StyledProductCost = styled.span`
   font-size: 1.1rem;
 `;
 
-const StyledCloseButton = styled.button`
+const StyledRemoveButton = styled.button`
   border: 0 none;
   background-color: transparent;
   cursor: pointer;
@@ -80,7 +80,7 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
                     {cartItem.quantity} x ${cartItem.cost}
                   </StyledProductCost>
                 </StyledElementDescription>
-                <StyledCloseButton
+                <StyledRemoveButton
                   onClick={() => handleRemoveFromCart(cartItem)}
                 >
                   <Image
@@ -89,7 +89,7 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
                     height="20"
                     alt="close"
                   />
-                </StyledCloseButton>
+                </StyledRemoveButton>
               </StyledListElement>
             );
           })

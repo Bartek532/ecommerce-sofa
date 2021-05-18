@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import styled from "styled-components";
 import { sofaColors } from "../../lib/utils/consts";
 import { useProduct } from "../../context/ProductContext";
@@ -53,7 +53,13 @@ const StyledColorField = styled.div<{ color: string }>`
 `;
 
 export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
-  const { activeSofaColor } = useProduct();
+  const { activeSofaColor, setActiveSofaColor } = useProduct();
+
+  useEffect(() => {
+    return () => {
+      setActiveSofaColor("yellow");
+    };
+  }, []);
   return (
     <StyledColorSelectWrapper>
       {sofaColors.slice(1).map(color => {

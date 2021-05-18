@@ -5,6 +5,7 @@ import { ColorSelect } from "../molecules/ColorSelect";
 import { StyledButton } from "../atoms/Button/Button";
 import { useProduct } from "../../context/ProductContext";
 import { useCart } from "../../context/CartContext";
+import { useMainContext } from "../../context/MainContext";
 
 type ProductDescriptionProps = {
   product: Sofa;
@@ -87,6 +88,17 @@ export const ProductDescription = memo<ProductDescriptionProps>(
     };
 
     const { handleAddToCart } = useCart();
+    const { setModal } = useMainContext();
+
+    const handleAddProductToCart = () => {
+      handleAddToCart(product);
+      setModal({
+        isOpen: true,
+        type: "success",
+        message: "Successfully added to cart!",
+      });
+    };
+
     return (
       <StyledProductDescription>
         <StyledProductName>{product.name}</StyledProductName>
@@ -103,7 +115,7 @@ export const ProductDescription = memo<ProductDescriptionProps>(
 
         <StyledProductOperations>
           <StyledProductCost>${product.cost}</StyledProductCost>
-          <StyledButton onClick={() => handleAddToCart(product)}>
+          <StyledButton onClick={handleAddProductToCart}>
             Add to cart
           </StyledButton>
         </StyledProductOperations>
