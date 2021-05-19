@@ -36,14 +36,14 @@ const StyledCartList = styled.div`
 `;
 
 export const Cart = () => {
-  const { cartItems } = useCart();
+  const { cartItems, getTotalQuantity } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   return (
     <StyledCartIconWrapper>
       <StyledCartButton onClick={() => setIsCartOpen(prev => !prev)}>
         <Image src="/svg/cart.svg" width="50" height="50" alt="cart" />
         <StyledCartCount>
-          {cartItems.reduce((acc, { quantity }) => acc + quantity, 0)}
+          {getTotalQuantity() > 99 ? "99" : getTotalQuantity()}
         </StyledCartCount>
       </StyledCartButton>
 

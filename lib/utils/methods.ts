@@ -59,3 +59,9 @@ export const calculateTotalCartItemsCost = (
     0
   );
 };
+
+export const calculateTotalCartItemsQuantity = (
+  cartItems: (Sofa & { quantity: number })[]
+) => {
+  return cartItems.reduce((total, { quantity }) => total + quantity, 0);
+};

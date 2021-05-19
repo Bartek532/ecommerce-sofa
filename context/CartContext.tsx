@@ -5,6 +5,7 @@ import {
   removeProductFromCart,
   changeProductQuantity,
   calculateTotalCartItemsCost,
+  calculateTotalCartItemsQuantity,
 } from "../lib/utils/methods";
 
 type CartContext = {
@@ -13,6 +14,7 @@ type CartContext = {
   handleRemoveFromCart: (product: Sofa) => void;
   handleChangeProductQuantity: (product: Sofa, quantity: number) => void;
   getTotalCost: () => number;
+  getTotalQuantity: () => number;
 };
 
 const CartContext = createContext<CartContext>({
@@ -21,6 +23,7 @@ const CartContext = createContext<CartContext>({
   handleRemoveFromCart: () => {},
   handleChangeProductQuantity: () => {},
   getTotalCost: () => 0,
+  getTotalQuantity: () => 0,
 });
 
 export const useCart = () => {
@@ -56,6 +59,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     return calculateTotalCartItemsCost(cartItems);
   };
 
+  const getTotalQuantity = () => {
+    return calculateTotalCartItemsQuantity(cartItems);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -64,6 +71,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         handleRemoveFromCart,
         handleChangeProductQuantity,
         getTotalCost,
+        getTotalQuantity,
       }}
     >
       {children}

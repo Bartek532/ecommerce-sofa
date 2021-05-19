@@ -126,12 +126,12 @@ const StyledCheckoutSummary = styled.div`
   justify-content: center;
   align-items: center;
   align-self: flex-end;
-  padding-right: 4rem;
+  padding-right: 3rem;
 `;
 
 const StyledTotalCost = styled.span`
   font-weight: bold;
-  margin-right: 1.5rem;
+  margin-right: 2rem;
 `;
 
 export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
