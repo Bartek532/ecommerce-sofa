@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Hero } from "./Hero";
-import { CheckoutList } from "../atoms/List/CheckoutList";
+import { CheckoutList } from "../molecules/List/CheckoutList";
 import { useCart } from "../../context/CartContext";
 import { useWindowSize } from "../../lib/utils/hooks";
 import { Header } from "../molecules/Header";

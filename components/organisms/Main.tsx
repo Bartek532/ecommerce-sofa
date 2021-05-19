@@ -3,7 +3,7 @@ import { HomeBanner } from "../molecules/HomeBanner";
 import styled from "styled-components";
 import { memo, useEffect } from "react";
 import type { Sofa } from "../../types";
-import { ProductsList } from "../molecules/ProductsList";
+import { ProductsList } from "../molecules/List/ProductsList";
 import { Preferences } from "../molecules/Preferences";
 import { useProduct } from "../../context/ProductContext";
 

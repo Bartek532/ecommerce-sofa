@@ -1,10 +1,10 @@
 import type { Sofa } from "../../../types";
 import { memo } from "react";
 import styled from "styled-components";
-import Image from "next/image";
-import { StyledButton } from "../Button/Button";
+import { StyledButton } from "../../atoms/Button/Button";
 import Link from "next/link";
 import { useCart } from "../../../context/CartContext";
+import { CartProduct } from "../../atoms/Product/CartProduct";
 
 type CartListProps = {
   cartItems: (Sofa & {
@@ -37,28 +37,6 @@ const StyledProductsList = styled.ul`
   }
 `;
 
-const StyledListElement = styled.li`
-  display: grid;
-  grid-template-columns: 5fr 1fr;
-  margin: 1.5rem 0;
-`;
-
-const StyledElementDescription = styled.div``;
-
-const StyledProductName = styled.h3`
-  font-size: 1.3rem;
-`;
-
-const StyledProductCost = styled.span`
-  font-size: 1.1rem;
-`;
-
-const StyledRemoveButton = styled.button`
-  border: 0 none;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
 const StyledEmptyCart = styled.p`
   width: 100%;
   text-align: center;
@@ -73,24 +51,10 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
         {cartItems.length ? (
           cartItems.map(cartItem => {
             return (
-              <StyledListElement key={cartItem.id}>
-                <StyledElementDescription>
-                  <StyledProductName>{cartItem.name}</StyledProductName>
-                  <StyledProductCost>
-                    {cartItem.quantity} x ${cartItem.cost}
-                  </StyledProductCost>
-                </StyledElementDescription>
-                <StyledRemoveButton
-                  onClick={() => handleRemoveFromCart(cartItem)}
-                >
-                  <Image
-                    src="/svg/close.svg"
-                    width="20"
-                    height="20"
-                    alt="close"
-                  />
-                </StyledRemoveButton>
-              </StyledListElement>
+              <CartProduct
+                onRemoveItem={handleRemoveFromCart}
+                product={cartItem}
+              />
             );
           })
         ) : (

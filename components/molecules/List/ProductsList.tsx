@@ -1,5 +1,5 @@
-import { ProductTile } from "../atoms/Product/ProductTile";
-import type { Sofa } from "../../types";
+import { ProductTile } from "../../atoms/Product/ProductTile";
+import type { Sofa } from "../../../types";
 import { memo } from "react";
 import styled from "styled-components";
 

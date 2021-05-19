@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
-import { CartList } from "../atoms/List/CartList";
+import { CartList } from "./List/CartList";
 
 const StyledCartIconWrapper = styled.div`
   position: relative;
