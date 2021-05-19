@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import type { Sofa } from "../../../types";
 import styled from "styled-components";
 import { useCart } from "../../../context/CartContext";
-import { StyledButton } from "../../atoms/Button/Button";
+import { StripeButton } from "../../atoms/Button/StripeButton";
 import { CheckoutProduct } from "../../atoms/Product/CheckoutProduct";
 
 type CheckoutListProps = {
@@ -86,7 +86,7 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
       )}
       <StyledCheckoutSummary>
         <StyledTotalCost>${getTotalCost()}</StyledTotalCost>
-        <StyledButton>Pay now</StyledButton>
+        <StripeButton price={getTotalCost()} />
       </StyledCheckoutSummary>
     </StyledCheckoutListWrapper>
   );

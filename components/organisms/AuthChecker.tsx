@@ -1,6 +1,7 @@
-import { auth } from "../../firebase";
-import { memo, useEffect, useState } from "react";
+import { auth } from "../../lib/firebase";
+import { memo, useState } from "react";
 import { useRouter } from "next/router";
+import { Loader } from "./Loader";
 
 type AuthCheckerProps = {
   readonly children: React.ReactNode;
@@ -16,7 +17,7 @@ export const AuthChecker = memo<AuthCheckerProps>(({ children }) => {
 
   if (!userIsLoggedIn) {
     router.push("/login");
-    return null;
+    return <Loader />;
   }
 
   return <>{children}</>;

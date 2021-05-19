@@ -1,7 +1,7 @@
 import { HeroLink } from "../atoms/Link/HeroLink";
 import { StyledButton } from "../atoms/Button/Button";
 import styled from "styled-components";
-import { auth } from "../../firebase";
+import { auth } from "../../lib/firebase";
 import { useRouter } from "next/router";
 
 const StyledHeader = styled.header`

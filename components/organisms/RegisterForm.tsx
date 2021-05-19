@@ -6,7 +6,7 @@ import { inputValidation } from "../../lib/utils/consts";
 import { RegisterData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
-import { auth } from "../../firebase";
+import { auth } from "../../lib/firebase";
 import { useMainContext } from "../../context/MainContext";
 
 import {

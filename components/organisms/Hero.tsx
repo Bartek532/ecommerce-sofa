@@ -5,7 +5,7 @@ import { StyledButton } from "../atoms/Button/Button";
 import { Cart } from "../molecules/Cart";
 import { memo, useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { auth } from "../../firebase";
+import { auth } from "../../lib/firebase";
 import { useProduct } from "../../context/ProductContext";
 import { sofaColors } from "../../lib/utils/consts";
 
