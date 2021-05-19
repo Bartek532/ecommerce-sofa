@@ -16,7 +16,9 @@ export const AuthChecker = memo<AuthCheckerProps>(({ children }) => {
   });
 
   if (!userIsLoggedIn) {
-    router.push("/login");
+    if (typeof window !== "undefined") {
+      router.push("/login");
+    }
     return <Loader />;
   }
 

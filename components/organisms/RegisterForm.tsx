@@ -30,8 +30,6 @@ export const RegisterForm = () => {
   const handleRegister = async ({ email, password }: RegisterData) => {
     setLoading(true);
     try {
-      await auth.signOut();
-      /*
       await auth.createUserWithEmailAndPassword(email, password);
       setModal({
         isOpen: true,
@@ -39,7 +37,6 @@ export const RegisterForm = () => {
         message: "Account was created. Log in!",
       });
       reset();
-      */
     } catch (e) {
       setModal({ isOpen: true, type: "error", message: e?.message });
     } finally {
@@ -51,16 +48,6 @@ export const RegisterForm = () => {
     <StyledFormWrapper>
       <StyledFormHeading>sign up</StyledFormHeading>
       <StyledForm onSubmit={handleSubmit(handleRegister)}>
-        <StyledLabel>
-          <span className="sr-only">name</span>
-          <StyledInput
-            id="name"
-            placeholder="Name"
-            autoComplete="name"
-            {...register("name", inputValidation.other)}
-          />
-          <StyledInputError>{errors?.name?.message}</StyledInputError>
-        </StyledLabel>
         <StyledLabel>
           <span className="sr-only">email</span>
           <StyledInput

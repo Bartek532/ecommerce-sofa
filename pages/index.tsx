@@ -1,4 +1,5 @@
 import { Layout } from "../components/organisms/Layout";
+import { AuthChecker } from "../components/organisms/AuthChecker";
 import { Main } from "../components/organisms/Main";
 import { DatoCMSData } from "../lib/datocms";
 import type { Sofa } from "../types";
@@ -6,9 +7,11 @@ import type { GetStaticProps } from "next";
 
 const Home = ({ results }: { results: Sofa[] }) => {
   return (
-    <Layout>
-      <Main results={results} />
-    </Layout>
+    <AuthChecker>
+      <Layout>
+        <Main results={results} />
+      </Layout>
+    </AuthChecker>
   );
 };
 

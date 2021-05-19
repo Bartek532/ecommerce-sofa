@@ -44,7 +44,7 @@ export const HomeBanner = () => {
   return (
     <StyledHomeSection>
       <StyledHomeTitle>Welcome to the world of convenience!</StyledHomeTitle>
-      <Image src="/svg/sofa.svg" width="450" height="450" />
+      <Image src="/svg/sofa.svg" width="450" height="450" alt="sofa" />
     </StyledHomeSection>
   );
 };
