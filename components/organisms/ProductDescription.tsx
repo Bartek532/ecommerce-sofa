@@ -6,6 +6,7 @@ import { StyledButton } from "../atoms/Button/Button";
 import { useProduct } from "../../context/ProductContext";
 import { useCart } from "../../context/CartContext";
 import { useMainContext } from "../../context/MainContext";
+import { sofaColors } from "../../lib/utils/consts";
 
 type ProductDescriptionProps = {
   product: Sofa;
@@ -84,7 +85,7 @@ export const ProductDescription = memo<ProductDescriptionProps>(
     const { setActiveSofaColor } = useProduct();
     const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       window.scrollTo(0, 0);
-      setActiveSofaColor(e.target.value);
+      setActiveSofaColor(e.target.value as typeof sofaColors[number]["label"]);
     };
 
     const { handleAddToCart } = useCart();
