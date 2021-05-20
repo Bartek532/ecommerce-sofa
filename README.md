@@ -22,7 +22,7 @@ This app is a project for e-commerce furniture store. Made with [SSG](https://ww
 | [React Hook Form](https://react-hook-form.com)     | Forms with easy-to-use validation                                   |
 | [React Select](https://react-select.com)           | React library for creating beatiful select inputs                   |
 | [Stripe](https://stripe.com)                       | Library for easy payment processing                                 |
-| [DatoCMS](https://www.datocms.com)                 | omplete, user-friendly and performant Headless CMS                  |
+| [DatoCMS](https://www.datocms.com)                 | Complete, user-friendly and performant Headless CMS                 |
 
 ## Performance 💨
 
