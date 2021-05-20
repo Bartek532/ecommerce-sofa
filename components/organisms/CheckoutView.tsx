@@ -21,7 +21,7 @@ export const CheckoutView = () => {
   const { width } = useWindowSize();
   return (
     <StyledCheckoutViewWrapper>
-      {width < 1000 ? <Header /> : <Hero isHome={false} />}
+      {width && width < 1000 ? <Header /> : <Hero isHome={false} />}
       <CheckoutList cartItems={cartItems} />
     </StyledCheckoutViewWrapper>
   );
