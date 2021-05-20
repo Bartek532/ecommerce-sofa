@@ -46,7 +46,7 @@ const StyledInput = styled.input`
   width: 0;
 `;
 
-const StyledColorField = styled.div<{ color: string }>`
+const StyledColorPlaceholder = styled.div<{ color: string }>`
   width: 70px;
   height: 70px;
   background-color: ${props => props.color};
@@ -57,7 +57,7 @@ export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
 
   useEffect(() => {
     return () => {
-      setActiveSofaColor("yellow");
+      setActiveSofaColor("default");
     };
   }, []);
   return (
@@ -76,9 +76,9 @@ export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
               onChange={onChange}
               checked={activeSofaColor === color.label}
             />
-            <StyledColorField
+            <StyledColorPlaceholder
               color={"#" + color.palette.main}
-            ></StyledColorField>
+            ></StyledColorPlaceholder>
           </StyledInputLabel>
         );
       })}

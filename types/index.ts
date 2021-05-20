@@ -1,10 +1,4 @@
-export type LoginData = {
-  email: string;
-  password: string;
-};
-
-export type RegisterData = {
-  name: string;
+export type UserData = {
   email: string;
   password: string;
 };

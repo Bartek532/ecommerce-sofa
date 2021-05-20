@@ -4,7 +4,7 @@ import { StyledButton } from "../atoms/Button/Button";
 import { StyledInputError } from "../atoms/Input/InputError";
 import { useForm } from "react-hook-form";
 import { inputValidation } from "../../lib/utils/consts";
-import { LoginData } from "../../types";
+import { UserData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
 import { auth } from "../../lib/firebase";
@@ -67,7 +67,7 @@ export const LoginForm = () => {
 
   const { setLoading, setModal } = useMainContext();
 
-  const handleLogin = async ({ email, password }: LoginData) => {
+  const handleLogin = async ({ email, password }: UserData) => {
     setLoading(true);
     try {
       await auth.signInWithEmailAndPassword(email, password);

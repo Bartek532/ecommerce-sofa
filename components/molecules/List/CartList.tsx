@@ -22,7 +22,7 @@ const StyledCartListWrapper = styled.div`
   height: 27rem;
 `;
 
-const StyledProductsList = styled.ul`
+const StyledCartList = styled.ul`
   list-style-type: none;
   padding: 0;
   width: 100%;
@@ -47,7 +47,7 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
   const { handleRemoveFromCart } = useCart();
   return (
     <StyledCartListWrapper>
-      <StyledProductsList>
+      <StyledCartList>
         {cartItems.length ? (
           cartItems.map(cartItem => {
             return (
@@ -60,7 +60,7 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
         ) : (
           <StyledEmptyCart>Cart is empty &#128531;</StyledEmptyCart>
         )}
-      </StyledProductsList>
+      </StyledCartList>
       <Link href="/checkout">
         <StyledButton>Checkout</StyledButton>
       </Link>

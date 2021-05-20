@@ -24,7 +24,7 @@ const StyledItemCost = styled.span`
   font-size: 1.1rem;
 `;
 
-const StyledRemoveButton = styled.button`
+const StyledRemoveItemButton = styled.button`
   border: 0 none;
   background-color: transparent;
   cursor: pointer;
@@ -40,9 +40,9 @@ export const CartProduct = memo<CartProductProps>(
             {product.quantity} x ${product.cost}
           </StyledItemCost>
         </StyledItemDescription>
-        <StyledRemoveButton onClick={() => onRemoveItem(product)}>
+        <StyledRemoveItemButton onClick={() => onRemoveItem(product)}>
           <Image src="/svg/close.svg" width="20" height="20" alt="close" />
-        </StyledRemoveButton>
+        </StyledRemoveItemButton>
       </StyledCartListItem>
     );
   }

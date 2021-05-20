@@ -30,7 +30,7 @@ export const inputValidation = {
 
 export const sofaColors = [
   {
-    label: "yellow",
+    label: "default" as const,
     palette: {
       main: "fac623",
       leftPillow: "eda600",
@@ -40,7 +40,7 @@ export const sofaColors = [
     },
   },
   {
-    label: "red",
+    label: "red" as const,
     palette: {
       main: "e5383b",
       leftPillow: "ba181b",
@@ -50,7 +50,7 @@ export const sofaColors = [
     },
   },
   {
-    label: "green",
+    label: "green" as const,
     palette: {
       main: "80b918",
       leftPillow: "2b9348",
@@ -60,7 +60,7 @@ export const sofaColors = [
     },
   },
   {
-    label: "blue",
+    label: "blue" as const,
     palette: {
       main: "219ebc",
       leftPillow: "126782",
@@ -70,7 +70,7 @@ export const sofaColors = [
     },
   },
   {
-    label: "pink",
+    label: "pink" as const,
     palette: {
       main: "ffafcc",
       leftPillow: "f78bb2",

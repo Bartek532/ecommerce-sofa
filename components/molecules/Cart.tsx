@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import { CartList } from "./List/CartList";
 
-const StyledCartIconWrapper = styled.div`
+const StyledCartWrapper = styled.div`
   position: relative;
   margin-right: 1.7rem;
 `;
@@ -16,7 +16,7 @@ const StyledCartButton = styled.button`
   font-family: inherit;
 `;
 
-const StyledCartCount = styled.span`
+const StyledCartProductsCount = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -29,7 +29,7 @@ const StyledCartCount = styled.span`
   }
 `;
 
-const StyledCartList = styled.div`
+const StyledCartListWrapper = styled.div`
   position: absolute;
   top: 5.5rem;
   right: -8rem;
@@ -39,19 +39,19 @@ export const Cart = () => {
   const { cartItems, getTotalQuantity } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   return (
-    <StyledCartIconWrapper>
-      <StyledCartButton onClick={() => setIsCartOpen(prev => !prev)}>
+    <StyledCartWrapper>
+      <StyledCartButton onClick={() => setIsCartOpen(open => !open)}>
         <Image src="/svg/cart.svg" width="50" height="50" alt="cart" />
-        <StyledCartCount>
+        <StyledCartProductsCount>
           {getTotalQuantity() > 99 ? "99" : getTotalQuantity()}
-        </StyledCartCount>
+        </StyledCartProductsCount>
       </StyledCartButton>
 
       {isCartOpen ? (
-        <StyledCartList>
+        <StyledCartListWrapper>
           <CartList cartItems={cartItems} />
-        </StyledCartList>
+        </StyledCartListWrapper>
       ) : null}
-    </StyledCartIconWrapper>
+    </StyledCartWrapper>
   );
 };

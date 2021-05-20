@@ -50,7 +50,7 @@ const StyledItemImage = styled.div`
   }
 `;
 
-const StyledNameLink = styled.a`
+const StyledItemName = styled.a`
   justify-self: start;
   &:hover {
     text-decoration: underline;
@@ -62,13 +62,13 @@ const StyledNameLink = styled.a`
   }
 `;
 
-const StyledInputLabel = styled.label`
+const StyledItemQuantityInputLabel = styled.label`
   input[type="number"] {
     -moz-appearance: textfield;
   }
 `;
 
-const StyledQuantityInput = styled.input`
+const StyledItemQuantityInput = styled.input`
   padding: 0.7rem;
   font-family: inherit;
   font-size: 1.8rem;
@@ -86,7 +86,7 @@ const StyledQuantityInput = styled.input`
   }
 `;
 
-const StyledRemoveButton = styled.button`
+const StyledRemoveItemButton = styled.button`
   border: 0 none;
   background-color: transparent;
   cursor: pointer;
@@ -105,13 +105,13 @@ export const CheckoutProduct = memo<CheckoutProductProps>(
           />
         </StyledItemImage>
         <Link href={`/products/${product.id}`}>
-          <StyledNameLink>
+          <StyledItemName>
             <h3>{product.name}</h3>
-          </StyledNameLink>
+          </StyledItemName>
         </Link>
-        <StyledInputLabel>
+        <StyledItemQuantityInputLabel>
           <span className="sr-only">quantity</span>
-          <StyledQuantityInput
+          <StyledItemQuantityInput
             value={product.quantity}
             type="number"
             onChange={e =>
@@ -119,11 +119,11 @@ export const CheckoutProduct = memo<CheckoutProductProps>(
             }
             max="99"
           />
-        </StyledInputLabel>
+        </StyledItemQuantityInputLabel>
         <span>${product.quantity * product.cost}</span>
-        <StyledRemoveButton onClick={() => onRemoveItem(product)}>
+        <StyledRemoveItemButton onClick={() => onRemoveItem(product)}>
           <Image src="/svg/close.svg" width="20" height="20" alt="close" />
-        </StyledRemoveButton>
+        </StyledRemoveItemButton>
       </StyledCheckoutListItem>
     );
   }

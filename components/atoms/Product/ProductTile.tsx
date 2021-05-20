@@ -8,7 +8,7 @@ type ProductProps = {
   product: Sofa;
 };
 
-const StyledProduct = styled.a`
+const StyledProductTile = styled.a`
   width: 100%;
   position: relative;
   flex: 0 1 30rem;
@@ -16,7 +16,7 @@ const StyledProduct = styled.a`
   cursor: pointer;
 `;
 
-const StyledProductFlashcard = styled.h3`
+const StyledProductTileFlashcard = styled.h3`
   position: absolute;
   bottom: 12%;
   right: 0;
@@ -25,7 +25,7 @@ const StyledProductFlashcard = styled.h3`
   font-size: 1.6rem;
 `;
 
-const StyledProductFlashcardCost = styled.span`
+const StyledProductTileFlashcardCost = styled.span`
   font-weight: normal;
   font-size: 1.2rem;
   padding-right: 0.5rem;
@@ -34,7 +34,7 @@ const StyledProductFlashcardCost = styled.span`
 export const ProductTile = memo<ProductProps>(({ product }) => {
   return (
     <Link href={`/products/${product.id}`} passHref>
-      <StyledProduct>
+      <StyledProductTile>
         <Image
           src={product.imgurl}
           width="100%"
@@ -42,13 +42,13 @@ export const ProductTile = memo<ProductProps>(({ product }) => {
           layout="responsive"
           alt={product.name}
         />
-        <StyledProductFlashcard>
-          <StyledProductFlashcardCost>
+        <StyledProductTileFlashcard>
+          <StyledProductTileFlashcardCost>
             ${product.cost}
-          </StyledProductFlashcardCost>
+          </StyledProductTileFlashcardCost>
           {product.name}
-        </StyledProductFlashcard>
-      </StyledProduct>
+        </StyledProductTileFlashcard>
+      </StyledProductTile>
     </Link>
   );
 });

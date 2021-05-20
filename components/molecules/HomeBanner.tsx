@@ -22,7 +22,7 @@ const StyledHomeSection = styled.section`
   }
 `;
 
-const StyledHomeTitle = styled.h2`
+const StyledHomeSectionTitle = styled.h2`
   font-size: 3.7rem;
   line-height: 4.8rem;
   position: relative;
@@ -43,7 +43,9 @@ const StyledHomeTitle = styled.h2`
 export const HomeBanner = () => {
   return (
     <StyledHomeSection>
-      <StyledHomeTitle>Welcome to the world of convenience!</StyledHomeTitle>
+      <StyledHomeSectionTitle>
+        Welcome to the world of convenience!
+      </StyledHomeSectionTitle>
       <Image src="/svg/sofa.svg" width="450" height="450" alt="sofa" />
     </StyledHomeSection>
   );

@@ -45,7 +45,7 @@ const StyledHeroHeader = styled.header`
   align-items: center;
 `;
 
-const StyledBackBtn = styled.button`
+const StyledHeroBackBtn = styled.button`
   background: transparent;
   border: 0 none;
   cursor: pointer;
@@ -60,7 +60,7 @@ const StyledHeroImage = styled.div`
   }
 `;
 
-const StyledLeftHeroPannel = styled.div`
+const StyledRightHeroPannel = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,18 +94,18 @@ export const Hero = memo<HeroProps>(({ isHome = true }) => {
         </StyledHeroHeading>
       ) : (
         <StyledHeroHeader>
-          <StyledBackBtn onClick={handleGoBack}>
+          <StyledHeroBackBtn onClick={handleGoBack}>
             <Image
               src="/svg/back.svg"
               width="40"
               height="40"
               alt="arrow-left"
             />
-          </StyledBackBtn>
-          <StyledLeftHeroPannel>
+          </StyledHeroBackBtn>
+          <StyledRightHeroPannel>
             <Cart />
             <StyledButton onClick={handleLogout}>logout</StyledButton>
-          </StyledLeftHeroPannel>
+          </StyledRightHeroPannel>
         </StyledHeroHeader>
       )}
       <StyledHeroImage>

@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
 } from "react";
+import { sofaColors } from "../lib/utils/consts";
 import type { Sofa } from "../types";
 
 type ProductContext = {
@@ -23,8 +24,10 @@ type ProductContext = {
   setSearchQuery: Dispatch<SetStateAction<string>>;
   productsTypes: string[];
   setProductsTypes: Dispatch<SetStateAction<string[]>>;
-  activeSofaColor: string;
-  setActiveSofaColor: Dispatch<SetStateAction<string>>;
+  activeSofaColor: typeof sofaColors[number]["label"];
+  setActiveSofaColor: Dispatch<
+    SetStateAction<typeof sofaColors[number]["label"]>
+  >;
   handleChangeSearchQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSelectProductTypes: (
@@ -47,7 +50,7 @@ const ProductContext = createContext<ProductContext>({
   setSearchQuery: () => {},
   productsTypes: [],
   setProductsTypes: () => {},
-  activeSofaColor: "yellow",
+  activeSofaColor: "default",
   setActiveSofaColor: () => {},
   handleChangeSearchQuery: () => {},
   handleChangePrice: () => {},
@@ -79,7 +82,8 @@ export const ProductProvider = ({
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [price, setPrice] = useState(350);
-  const [activeSofaColor, setActiveSofaColor] = useState("yellow");
+  const [activeSofaColor, setActiveSofaColor] =
+    useState<typeof sofaColors[number]["label"]>("default");
 
   const handleSelectProductTypes = (
     types: { value: string; label: string }[]

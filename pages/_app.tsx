@@ -9,9 +9,9 @@ import { ProductProvider } from "../context/ProductContext";
 import { CartProvider } from "../context/CartContext";
 
 const meta = {
-  title: "Sofa App",
+  title: "Furniture? Sofa!",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, culpa. Odit totam ex sed repudiandae perferendis hic sint maiores minus!",
+    "This app is e-commerce project where you can buy your dream sofa.",
 };
 
 export const titleTemplate = `%s | ${meta.title}`;
@@ -26,7 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         openGraph={{
           type: "website",
           title: meta.title,
-          locale: "en_EN",
           url: `https://${process.env.NEXT_PUBLIC_URL!}${asPath}`,
           description: meta.description,
           images: [

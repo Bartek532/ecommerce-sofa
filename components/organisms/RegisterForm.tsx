@@ -3,7 +3,7 @@ import { StyledButton } from "../atoms/Button/Button";
 import { StyledInputError } from "../atoms/Input/InputError";
 import { useForm } from "react-hook-form";
 import { inputValidation } from "../../lib/utils/consts";
-import { RegisterData } from "../../types";
+import { UserData } from "../../types";
 import Link from "next/link";
 import { StyledLink } from "../atoms/Link/Link";
 import { auth } from "../../lib/firebase";
@@ -27,7 +27,7 @@ export const RegisterForm = () => {
 
   const { setLoading, setModal } = useMainContext();
 
-  const handleRegister = async ({ email, password }: RegisterData) => {
+  const handleRegister = async ({ email, password }: UserData) => {
     setLoading(true);
     try {
       await auth.createUserWithEmailAndPassword(email, password);
