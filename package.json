@@ -1,5 +1,5 @@
 {
-  "name": "sofa",
+  "name": "ecommerce-sofa",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,6 @@
   "dependencies": {
     "datocms-client": "^3.4.9",
     "firebase": "^8.6.0",
-    "graphql-request": "^3.4.0",
     "next": "10.2.0",
     "next-seo": "^4.24.0",
     "react": "17.0.2",

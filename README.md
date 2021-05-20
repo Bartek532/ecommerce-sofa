@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+<img src="https://i.ibb.co/YPC75VD/furniture-sofa-logo.png" alt="app logo" width="100%"/>
 
-## Getting Started
+</h1>
 
-First, run the development server:
+<h4 align="center">Furniture? Sofa!</h4>
+
+## Project Overview 🎨
+
+This app is a project for e-commerce furniture store. Made with [SSG](https://www.netlify.com/blog/2020/04/14/what-is-a-static-site-generator-and-3-ways-to-find-the-best-one/) provide very good User Experience. App includes authentication and logged user can choose from many offers, which are fetched from [Headless CMS](https://en.wikipedia.org/wiki/Headless_content_management_system). When you find something not working open an [issue](https://github.com/Bartek532/ecommerce-sofa/issues) or directly make a [pull request](https://github.com/Bartek532/ecommerce-sofa/pulls). Enjoy!
+
+## Tech/framework used 🧰
+
+| Tech                                               | Description                                                         |
+| -------------------------------------------------- | ------------------------------------------------------------------- |
+| [Typescript](https://www.typescriptlang.org/)      | Javascript superset language                                        |
+| [React](https://reactjs.org/)                      | Library for building user interfaces                                |
+| [Next](https://nextjs.org)                         | Powerful React Framework                                            |
+| [SCSS](https://sass-lang.com)                      | CSS with superpowers                                                |
+| [Styled Components](https://styled-components.com) | CSS-in-JS styling framework                                         |
+| [Firebase](https://firebase.google.com)            | Powerful for apps that don't use backend (e. g. for authentication) |
+| [React Hook Form](https://react-hook-form.com)     | Forms with easy-to-use validation                                   |
+| [React Select](https://react-select.com)           | React library for creating beatiful select inputs                   |
+| [Stripe](https://stripe.com)                       | Library for easy payment processing                                 |
+| [DatoCMS](https://www.datocms.com)                 | omplete, user-friendly and performant Headless CMS                  |
+
+## Performance 💨
+
+<img src="https://i.ibb.co/xLNQPzx/ecommerce-sofa-lighthouse.png" alt="furniture? sofa! - lighthouse stats" >
+
+<br/>
+
+<img src="https://i.ibb.co/hZLNdYj/ecommerce-sofa-vercel.png" alt="furniture? sofa! - vercel stats" >
+
+## Installation 💿
 
 ```bash
-npm run dev
-# or
-yarn dev
+
+git clone https://github.com/Bartek532/ecommerce-sofa.git
+
+npm install
+
+npm run start
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live 🎆
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://ecommerce-sofa.vercel.app
