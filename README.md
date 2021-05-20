@@ -7,7 +7,7 @@
 
 ## Project Overview 🎨
 
-This app is a project for e-commerce furniture store. Made with [SSG](https://www.netlify.com/blog/2020/04/14/what-is-a-static-site-generator-and-3-ways-to-find-the-best-one/) provide very good User Experience. App includes authentication and logged user can choose from many offers, which are fetched from [Headless CMS](https://en.wikipedia.org/wiki/Headless_content_management_system). When you find something not working open an [issue](https://github.com/Bartek532/ecommerce-sofa/issues) or directly make a [pull request](https://github.com/Bartek532/ecommerce-sofa/pulls). Enjoy!
+This app is a project for e-commerce furniture store. Made with [SSG](https://www.netlify.com/blog/2020/04/14/what-is-a-static-site-generator-and-3-ways-to-find-the-best-one/) provides very good User Experience. App includes authentication and logged user can choose from many offers, which are fetched from [Headless CMS](https://en.wikipedia.org/wiki/Headless_content_management_system). When you find something not working open an [issue](https://github.com/Bartek532/ecommerce-sofa/issues) or directly make a [pull request](https://github.com/Bartek532/ecommerce-sofa/pulls). Enjoy!
 
 ## Tech/framework used 🧰
 
