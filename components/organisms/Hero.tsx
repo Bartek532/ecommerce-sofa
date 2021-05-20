@@ -21,7 +21,7 @@ const StyledHeroWrapper = styled.section<HeroProps>`
   align-items: center;
   flex-direction: column;
   background-color: var(--yellow-500);
-  padding: 4rem 2.5rem 12rem;
+  padding: 2.4rem 2.5rem 12rem;
   position: relative;
   padding-bottom: ${props => (props.isHome ? "12rem" : "4rem")};
   @media all and (min-width: 1000px) {
@@ -52,8 +52,7 @@ const StyledHeroBackBtn = styled.button`
 `;
 
 const StyledHeroImage = styled.div`
-  width: 100%;
-  max-width: 35rem;
+  max-width: 32rem;
   svg {
     width: 100%;
     height: 100%;
