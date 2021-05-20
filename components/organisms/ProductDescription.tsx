@@ -9,7 +9,7 @@ import { useMainContext } from "../../context/MainContext";
 import { sofaColors } from "../../lib/utils/consts";
 
 type ProductDescriptionProps = {
-  product: Sofa;
+  readonly product: Sofa;
 };
 
 const StyledProductDescription = styled.section`

@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 type CheckoutProductProps = {
-  product: Sofa & { quantity: number };
-  onChangeItemQuantity: (
+  readonly product: Sofa & { quantity: number };
+  readonly onChangeItemQuantity: (
     product: Sofa & { quantity: number },
     quantity: number
   ) => void;
-  onRemoveItem: (product: Sofa & { quantity: number }) => void;
+  readonly onRemoveItem: (product: Sofa & { quantity: number }) => void;
 };
 
 const StyledCheckoutListItem = styled.li`

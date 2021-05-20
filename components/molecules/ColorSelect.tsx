@@ -4,8 +4,8 @@ import { sofaColors } from "../../lib/utils/consts";
 import { useProduct } from "../../context/ProductContext";
 
 type ColorSelectProps = {
-  name?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  readonly name?: string;
+  readonly onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const StyledColorSelectWrapper = styled.div`

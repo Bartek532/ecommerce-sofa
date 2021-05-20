@@ -34,10 +34,10 @@ const StyledInput = styled.input`
 `;
 
 type SearchInputProps = {
-  name?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
-  placeholder: string;
+  readonly name?: string;
+  readonly onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  readonly value: string;
+  readonly placeholder: string;
 };
 
 export const SearchInput = memo<SearchInputProps>(

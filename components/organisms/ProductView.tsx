@@ -5,7 +5,7 @@ import { memo } from "react";
 import styled from "styled-components";
 
 type ProductViewProps = {
-  product: Sofa;
+  readonly product: Sofa;
 };
 
 const StyledProductViewWrapper = styled.main`

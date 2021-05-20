@@ -24,7 +24,7 @@ const StyledMainContent = styled.main`
 `;
 
 type MainProps = {
-  results: Sofa[];
+  readonly results: Sofa[];
 };
 
 export const Main = memo<MainProps>(({ results }) => {

@@ -7,7 +7,7 @@ import { useCart } from "../../../context/CartContext";
 import { CartProduct } from "../../atoms/Product/CartProduct";
 
 type CartListProps = {
-  cartItems: (Sofa & {
+  readonly cartItems: (Sofa & {
     quantity: number;
   })[];
 };

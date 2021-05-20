@@ -4,7 +4,7 @@ import { memo } from "react";
 import styled from "styled-components";
 
 type ProductsListProps = {
-  products: Sofa[];
+  readonly products: Sofa[];
 };
 
 const StyledProductsListWrapper = styled.section`

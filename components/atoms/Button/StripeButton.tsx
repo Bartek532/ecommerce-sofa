@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { StyledButton } from "./Button";
 
 type StripeButtonProps = {
-  price: number;
+  readonly price: number;
 };
 
 export const StripeButton = memo<StripeButtonProps>(({ price }) => {

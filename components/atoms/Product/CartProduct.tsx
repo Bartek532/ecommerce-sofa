@@ -4,8 +4,8 @@ import type { Sofa } from "../../../types";
 import Image from "next/image";
 
 type CartProductProps = {
-  product: Sofa & { quantity: number };
-  onRemoveItem: (product: Sofa & { quantity: number }) => void;
+  readonly product: Sofa & { quantity: number };
+  readonly onRemoveItem: (product: Sofa & { quantity: number }) => void;
 };
 
 const StyledCartListItem = styled.li`

@@ -43,9 +43,9 @@ const StyledLabel = styled.label`
 `;
 
 type SelectInputProps = {
-  options: { value: string; label: string }[];
-  name?: string;
-  onChange: (options: { value: string; label: string }[]) => void;
+  readonly options: { value: string; label: string }[];
+  readonly name?: string;
+  readonly onChange: (options: { value: string; label: string }[]) => void;
 };
 
 export const SelectInput = memo<SelectInputProps>(

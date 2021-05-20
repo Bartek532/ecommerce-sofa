@@ -6,7 +6,7 @@ import { StripeButton } from "../../atoms/Button/StripeButton";
 import { CheckoutProduct } from "../../atoms/Product/CheckoutProduct";
 
 type CheckoutListProps = {
-  cartItems: (Sofa & { quantity: number })[];
+  readonly cartItems: (Sofa & { quantity: number })[];
 };
 
 const StyledCheckoutListWrapper = styled.div`

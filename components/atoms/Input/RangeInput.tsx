@@ -82,12 +82,12 @@ const StyledLabel = styled.label`
 `;
 
 type RangeInputProps = {
-  name?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  minPrice: number;
-  maxPrice: number;
-  price: number;
-  step?: number;
+  readonly name?: string;
+  readonly onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  readonly minPrice: number;
+  readonly maxPrice: number;
+  readonly price: number;
+  readonly step?: number;
 };
 
 export const RangeInput = memo<RangeInputProps>(
