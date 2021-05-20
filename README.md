@@ -3,7 +3,7 @@
 
 </h1>
 
-<h4 align="center">Furniture? Sofa!</h4>
+<h4 align="center">Furniture? Sofa! - e-commerce furniture store project</h4>
 
 ## Project Overview 🎨
 
