@@ -95,12 +95,14 @@ export const ProductProvider = ({
     setFilteredProducts(
       products.filter(product => {
         if (!selectedProductTypes.length) {
-          return product;
+          return true;
         }
 
         if (selectedProductTypes.includes(product.sofaType)) {
-          return product;
+          return true;
         }
+
+        return false;
       })
     );
   };
