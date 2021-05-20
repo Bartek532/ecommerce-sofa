@@ -52,6 +52,7 @@ const StyledHeroBackBtn = styled.button`
 `;
 
 const StyledHeroImage = styled.div`
+  width: 100%;
   max-width: 32rem;
   svg {
     width: 100%;
