@@ -49,7 +49,7 @@ npm run start
 
 https://ecommerce-sofa.vercel.app
 
-## Credentials
+## Credentials 💳
 
 If you don't want to register but you want to see the app in its full glory, use this data:
 
