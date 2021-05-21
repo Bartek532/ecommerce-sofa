@@ -44,7 +44,7 @@ export const StyledProductType = styled.p`
 `;
 
 export const StyledProductDescriptionText = styled.p`
-  line-height: 2.1rem;
+  line-height: 2.2rem;
   align-self: flex-start;
   margin-bottom: 2rem;
   font-size: 1.4rem;
