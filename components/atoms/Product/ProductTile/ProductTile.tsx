@@ -33,3 +33,5 @@ export const ProductTile = memo<ProductProps>(({ product }) => {
     </Link>
   );
 });
+
+ProductTile.displayName = "ProductTile";

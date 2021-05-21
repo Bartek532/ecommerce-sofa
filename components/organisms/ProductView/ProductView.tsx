@@ -16,3 +16,5 @@ export const ProductView = memo<ProductViewProps>(({ product }) => {
     </StyledProductViewWrapper>
   );
 });
+
+ProductView.displayName = "ProductView";

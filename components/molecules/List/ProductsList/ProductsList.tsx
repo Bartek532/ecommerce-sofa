@@ -25,3 +25,5 @@ export const ProductsList = memo<ProductsListProps>(({ products }) => {
     </StyledProductsListWrapper>
   );
 });
+
+ProductsList.displayName = "ProductsList";

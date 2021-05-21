@@ -24,3 +24,5 @@ export const AuthChecker = memo<AuthCheckerProps>(({ children }) => {
 
   return <>{children}</>;
 });
+
+AuthChecker.displayName = "AuthChecker";

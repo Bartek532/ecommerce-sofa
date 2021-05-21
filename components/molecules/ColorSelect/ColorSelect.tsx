@@ -46,3 +46,5 @@ export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
     </StyledColorSelectWrapper>
   );
 });
+
+ColorSelect.displayName = "ColorSelect";

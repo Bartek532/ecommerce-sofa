@@ -45,3 +45,5 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
     </StyledCheckoutListWrapper>
   );
 });
+
+CheckoutList.displayName = "CheckoutList";

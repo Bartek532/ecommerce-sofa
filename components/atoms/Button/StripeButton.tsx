@@ -29,3 +29,5 @@ export const StripeButton = memo<StripeButtonProps>(({ price }) => {
     </StripeCheckout>
   );
 });
+
+StripeButton.displayName = "StripeButton";

@@ -64,3 +64,5 @@ export const ProductDescription = memo<ProductDescriptionProps>(
     );
   }
 );
+
+ProductDescription.displayName = "ProductDescription";

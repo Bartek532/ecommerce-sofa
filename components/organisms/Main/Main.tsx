@@ -29,3 +29,5 @@ export const Main = memo<MainProps>(({ results }) => {
     </StyledMainWrapper>
   );
 });
+
+Main.displayName = "Main";

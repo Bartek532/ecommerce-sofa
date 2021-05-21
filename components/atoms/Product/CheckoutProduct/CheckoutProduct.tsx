@@ -56,3 +56,5 @@ export const CheckoutProduct = memo<CheckoutProductProps>(
     );
   }
 );
+
+CheckoutProduct.displayName = "CheckoutProduct";

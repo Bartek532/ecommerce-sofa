@@ -33,3 +33,5 @@ export const Layout = memo<LayoutProps>(
     );
   }
 );
+
+Layout.displayName = "Layout";

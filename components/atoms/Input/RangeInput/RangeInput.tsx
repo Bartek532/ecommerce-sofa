@@ -42,3 +42,5 @@ export const RangeInput = memo<RangeInputProps>(
     );
   }
 );
+
+RangeInput.displayName = "RangeInput";

@@ -40,3 +40,5 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
     </StyledCartListWrapper>
   );
 });
+
+CartList.displayName = "CartList";

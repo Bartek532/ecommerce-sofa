@@ -31,3 +31,5 @@ export const CartProduct = memo<CartProductProps>(
     );
   }
 );
+
+CartProduct.displayName = "CartProduct";

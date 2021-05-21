@@ -29,3 +29,5 @@ export const SelectInput = memo<SelectInputProps>(
     );
   }
 );
+
+SelectInput.displayName = "SelectInput";

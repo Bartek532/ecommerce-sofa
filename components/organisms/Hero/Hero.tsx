@@ -100,3 +100,5 @@ export const Hero = memo<HeroProps>(({ isHome = true }) => {
     </StyledHeroWrapper>
   );
 });
+
+Hero.displayName = "Hero";

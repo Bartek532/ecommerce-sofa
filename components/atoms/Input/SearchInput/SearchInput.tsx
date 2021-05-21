@@ -30,3 +30,5 @@ export const SearchInput = memo<SearchInputProps>(
     );
   }
 );
+
+SearchInput.displayName = "SearchInput";
