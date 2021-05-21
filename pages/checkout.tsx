@@ -1,6 +1,6 @@
-import { Layout } from "../components/organisms/Layout";
-import { CheckoutView } from "../components/organisms/CheckoutView";
-import { AuthChecker } from "../components/organisms/AuthChecker";
+import { Layout } from "components/organisms/Layout";
+import { CheckoutView } from "components/organisms/CheckoutView/CheckoutView";
+import { AuthChecker } from "components/organisms/AuthChecker";
 
 const Checkout = () => {
   return (

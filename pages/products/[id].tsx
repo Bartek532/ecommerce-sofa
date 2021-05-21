@@ -1,9 +1,9 @@
-import type { Sofa } from "../../types";
-import { Layout } from "../../components/organisms/Layout";
-import { ProductView } from "../../components/organisms/ProductView";
+import type { Sofa } from "types";
+import { Layout } from "components/organisms/Layout";
+import { ProductView } from "components/organisms/ProductView/ProductView";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { DatoCMSData } from "../../lib/datocms";
-import { AuthChecker } from "../../components/organisms/AuthChecker";
+import { DatoCMSData } from "lib/datocms";
+import { AuthChecker } from "components/organisms/AuthChecker";
 
 const Product = ({ product }: { product: Sofa }) => {
   return (

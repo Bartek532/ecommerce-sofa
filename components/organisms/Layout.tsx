@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { titleTemplate as defaultTitleTemplate } from "../../pages/_app";
-import { Loader } from "./Loader";
+import { Loader } from "components/organisms/Loader/Loader";
 import { NextSeo } from "next-seo";
 
-import { Modal } from "../atoms/Modal/Modal";
+import { Modal } from "components/atoms/Modal/Modal";
 
 type LayoutProps = {
   readonly children: React.ReactNode;

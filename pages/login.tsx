@@ -1,7 +1,7 @@
-import { Hero } from "../components/organisms/Hero";
-import { LoginForm } from "../components/organisms/LoginForm";
+import { Hero } from "components/organisms/Hero/Hero";
+import { LoginForm } from "components/organisms/Form/LoginForm";
 import styled from "styled-components";
-import { Layout } from "../components/organisms/Layout";
+import { Layout } from "components/organisms/Layout";
 
 const MainWrapper = styled.main`
   width: 100%;

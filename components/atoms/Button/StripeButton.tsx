@@ -1,6 +1,6 @@
 import StripeCheckout, { Token } from "react-stripe-checkout";
 import React, { memo } from "react";
-import { StyledButton } from "./Button";
+import { StyledButton } from "./Button.styles";
 
 type StripeButtonProps = {
   readonly price: number;

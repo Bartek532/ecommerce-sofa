@@ -19,7 +19,8 @@
     "strict": true,
     "target": "es2019",
     "allowJs": true,
-    "plugins": []
+    "plugins": [],
+    "baseUrl": "."
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
   "exclude": ["node_modules", "cypress"]

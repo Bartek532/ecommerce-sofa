@@ -1,12 +1,12 @@
-import "../styles/variables.scss";
-import "../styles/globals.scss";
+import "styles/variables.scss";
+import "styles/globals.scss";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { MainProvider } from "../context/MainContext";
-import { ProductProvider } from "../context/ProductContext";
-import { CartProvider } from "../context/CartContext";
+import { MainProvider } from "context/MainContext";
+import { ProductProvider } from "context/ProductContext";
+import { CartProvider } from "context/CartContext";
 
 const meta = {
   title: "Furniture? Sofa!",

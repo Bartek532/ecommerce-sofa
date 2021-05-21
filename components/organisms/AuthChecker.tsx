@@ -1,7 +1,7 @@
-import { auth } from "../../lib/firebase";
+import { auth } from "lib/firebase";
 import { memo, useState } from "react";
 import { useRouter } from "next/router";
-import { Loader } from "./Loader";
+import { Loader } from "./Loader/Loader";
 
 type AuthCheckerProps = {
   readonly children: React.ReactNode;

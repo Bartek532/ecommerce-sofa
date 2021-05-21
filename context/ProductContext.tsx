@@ -6,8 +6,8 @@ import {
   useContext,
   useEffect,
 } from "react";
-import { sofaColors } from "../lib/utils/consts";
-import type { Sofa } from "../types";
+import { sofaColors } from "lib/utils/consts";
+import type { Sofa } from "types";
 
 type ProductContext = {
   products: Sofa[];

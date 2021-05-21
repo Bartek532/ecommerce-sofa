@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
-import type { Sofa } from "../types";
+import type { Sofa } from "types";
 import {
   addProductToCart,
   removeProductFromCart,
   changeProductQuantity,
   calculateTotalCartItemsCost,
   calculateTotalCartItemsQuantity,
-} from "../lib/utils/methods";
+} from "lib/utils/methods";
 
 type CartContext = {
   cartItems: (Sofa & { quantity: number })[];

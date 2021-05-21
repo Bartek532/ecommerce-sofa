@@ -1,4 +1,4 @@
-import type { Sofa } from "../../types";
+import type { Sofa } from "types";
 
 export const addProductToCart = (
   cartItems: (Sofa & { quantity: number })[],
