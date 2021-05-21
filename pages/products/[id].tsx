@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async context => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const results: Sofa[] = await await DatoCMSData.items.all();
+    const results: Sofa[] = await DatoCMSData.items.all();
     return {
       paths: results.map(({ id }) => ({
         params: { id },
