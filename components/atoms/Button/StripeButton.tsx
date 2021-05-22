@@ -25,7 +25,7 @@ export const StripeButton = memo<StripeButtonProps>(({ price }) => {
       alipay
       bitcoin
     >
-      <StyledButton>pay now</StyledButton>
+      <StyledButton disabled={price <= 0}>pay now</StyledButton>
     </StripeCheckout>
   );
 });

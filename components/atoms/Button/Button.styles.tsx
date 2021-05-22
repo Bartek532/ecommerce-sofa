@@ -11,4 +11,9 @@ export const StyledButton = styled.button`
   background-color: var(--yellow-700);
   font-family: inherit;
   text-transform: uppercase;
+
+  &:disabled {
+    background-color: var(--gray-100);
+    cursor: default;
+  }
 `;
