@@ -40,6 +40,7 @@ export const StyledHeroBackBtn = styled.button`
   background: transparent;
   border: 0 none;
   cursor: pointer;
+  padding: 0.5rem;
 `;
 
 export const StyledHeroImage = styled.div`

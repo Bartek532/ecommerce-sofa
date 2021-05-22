@@ -4,6 +4,10 @@ import Select from "react-select";
 export const StyledInputWrapper = styled.div`
   width: 24rem;
   margin: 2rem 1.5rem;
+
+  * {
+    cursor: pointer;
+  }
 `;
 
 export const StyledInput = styled(Select)`
@@ -39,4 +43,5 @@ export const StyledLabel = styled.label`
   font-size: 1.35rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+  cursor: default;
 `;

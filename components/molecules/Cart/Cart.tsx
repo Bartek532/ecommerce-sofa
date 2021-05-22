@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "context/CartContext";
+import { useWindowSize } from "../../../lib/utils/hooks";
 import { CartList } from "components/molecules/List/CartList/CartList";
 import {
   StyledCartWrapper,
@@ -12,10 +13,16 @@ import {
 export const Cart = () => {
   const { cartItems, getTotalQuantity } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { width } = useWindowSize();
   return (
     <StyledCartWrapper>
       <StyledCartButton onClick={() => setIsCartOpen(open => !open)}>
-        <Image src="/svg/cart.svg" width="50" height="50" alt="cart" />
+        <Image
+          src="/svg/cart.svg"
+          width={width && width > 1100 ? "45" : "40"}
+          height={width && width > 1100 ? "45" : "40"}
+          alt="cart"
+        />
         <StyledCartProductsCount>
           {getTotalQuantity() > 99 ? "99" : getTotalQuantity()}
         </StyledCartProductsCount>

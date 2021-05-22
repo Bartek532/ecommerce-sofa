@@ -16,7 +16,7 @@ export const StyledCartProductsCount = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-27%, -40%);
+  transform: translate(-50%, -30%);
   font-size: 1.5rem;
   user-select: none;
 
@@ -29,4 +29,5 @@ export const StyledCartListWrapper = styled.div`
   position: absolute;
   top: 5.5rem;
   right: -8rem;
+  z-index: 10;
 `;

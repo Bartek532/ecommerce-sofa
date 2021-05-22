@@ -2,7 +2,12 @@ import { HeroLink } from "components/atoms/Link/HeroLink/HeroLink";
 import { StyledButton } from "components/atoms/Button/Button.styles";
 import { auth } from "lib/firebase";
 import { useRouter } from "next/router";
-import { StyledHeader } from "./Header.styles";
+import { Cart } from "../Cart/Cart";
+import {
+  StyledHeader,
+  StyledRightPannelWrapper,
+  StyledBasketWrapper,
+} from "./Header.styles";
 
 export const Header = () => {
   const router = useRouter();
@@ -13,7 +18,12 @@ export const Header = () => {
   return (
     <StyledHeader>
       <HeroLink />
-      <StyledButton onClick={handleLogout}>logout</StyledButton>
+      <StyledRightPannelWrapper>
+        <StyledBasketWrapper>
+          <Cart />
+        </StyledBasketWrapper>
+        <StyledButton onClick={handleLogout}>logout</StyledButton>
+      </StyledRightPannelWrapper>
     </StyledHeader>
   );
 };
