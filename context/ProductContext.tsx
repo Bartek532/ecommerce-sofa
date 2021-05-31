@@ -91,31 +91,28 @@ export const ProductProvider = ({
     setSelectedProductTypes(types.map(type => type.value));
   };
 
-  const handleFilterByTypes = () => {
-    setFilteredProducts(
-      products.filter(product => {
-        if (!selectedProductTypes.length) {
-          return true;
-        }
-
-        if (selectedProductTypes.includes(product.sofaType)) {
-          return true;
-        }
-
-        return false;
-      })
-    );
-  };
-
   useEffect(() => {
-    handleFilterByTypes();
-  }, [selectedProductTypes]);
+    handleFilterProducts();
+  }, [price, searchQuery, selectedProductTypes]);
 
-  const handleFilterProductsByName = () => {
+  const handleFilterProducts = () => {
     setFilteredProducts(
-      products.filter(product =>
-        product.name.toLowerCase().startsWith(searchQuery.toLowerCase())
-      )
+      products
+        .filter(product =>
+          product.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+        )
+        .filter(product => product.cost <= price)
+        .filter(product => {
+          if (!selectedProductTypes.length) {
+            return true;
+          }
+
+          if (selectedProductTypes.includes(product.sofaType)) {
+            return true;
+          }
+
+          return false;
+        })
     );
   };
 
@@ -123,21 +120,9 @@ export const ProductProvider = ({
     setSearchQuery(e.target.value);
   };
 
-  useEffect(() => {
-    handleFilterProductsByName();
-  }, [searchQuery]);
-
-  const handleFilterProductsByPrice = () => {
-    setFilteredProducts(products.filter(product => product.cost <= price));
-  };
-
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(Number(e.target.value));
   };
-
-  useEffect(() => {
-    handleFilterProductsByPrice();
-  }, [price]);
 
   useEffect(() => {
     setMinPrice(Math.min(...products.map(product => product.cost)));
