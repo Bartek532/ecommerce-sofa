@@ -1,7 +1,7 @@
-import { auth } from "lib/firebase";
-import { memo, useState, useEffect } from "react";
+import { memo } from "react";
 import { useRouter } from "next/router";
 import { Loader } from "./Loader/Loader";
+import { useUser } from "lib/utils/hooks";
 
 type AuthCheckerProps = {
   readonly children: React.ReactNode;
@@ -9,18 +9,11 @@ type AuthCheckerProps = {
 
 export const AuthChecker = memo<AuthCheckerProps>(({ children }) => {
   const router = useRouter();
-  const [userIsLoggedIn, setIsUserLoggedIn] = useState(!!auth.currentUser);
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setIsUserLoggedIn(!!user);
-    });
+  const { user } = useUser();
 
-    return () => unsubscribe();
-  }, []);
-
-  if (!userIsLoggedIn) {
+  if (!user) {
     if (typeof window !== "undefined") {
-      router.push("/login");
+      router.replace("/login");
     }
     return <Loader />;
   }
