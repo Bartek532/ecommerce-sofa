@@ -15,6 +15,7 @@ import {
   StyledLabel,
   StyledFormSignature,
 } from "./Form.styles";
+import { useEffect } from "react";
 
 import { useRouter } from "next/router";
 
@@ -24,6 +25,10 @@ export const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    auth.signOut();
+  }, []);
 
   const router = useRouter();
 
