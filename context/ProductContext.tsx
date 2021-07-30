@@ -50,7 +50,7 @@ const ProductContext = createContext<ProductContext>({
   setSearchQuery: () => {},
   productsTypes: [],
   setProductsTypes: () => {},
-  activeSofaColor: "default",
+  activeSofaColor: "yellow",
   setActiveSofaColor: () => {},
   handleChangeSearchQuery: () => {},
   handleChangePrice: () => {},
@@ -83,7 +83,7 @@ export const ProductProvider = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [price, setPrice] = useState(350);
   const [activeSofaColor, setActiveSofaColor] =
-    useState<typeof sofaColors[number]["label"]>("default");
+    useState<typeof sofaColors[number]["label"]>("yellow");
 
   const handleSelectProductTypes = (
     types: { value: string; label: string }[]

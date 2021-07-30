@@ -18,12 +18,12 @@ export const ColorSelect = memo<ColorSelectProps>(({ name, onChange }) => {
 
   useEffect(() => {
     return () => {
-      setActiveSofaColor("default");
+      setActiveSofaColor("yellow");
     };
   }, []);
   return (
     <StyledColorSelectWrapper>
-      {sofaColors.slice(1).map(color => {
+      {sofaColors.map(color => {
         return (
           <StyledInputLabel
             key={color.label}
