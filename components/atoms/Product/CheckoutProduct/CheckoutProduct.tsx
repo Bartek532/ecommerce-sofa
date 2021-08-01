@@ -23,7 +23,7 @@ type CheckoutProductProps = {
 export const CheckoutProduct = memo<CheckoutProductProps>(
   ({ product, onChangeItemQuantity, onRemoveItem }) => {
     return (
-      <StyledCheckoutListItem key={product.id}>
+      <StyledCheckoutListItem data-testid="checkout-product">
         <StyledItemImage>
           <Image
             src={product.imgurl}

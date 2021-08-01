@@ -29,6 +29,7 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
                 product={cartItem}
                 onRemoveItem={handleRemoveFromCart}
                 onChangeItemQuantity={handleChangeProductQuantity}
+                key={cartItem.id}
               />
             );
           })}
