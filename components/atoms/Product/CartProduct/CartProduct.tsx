@@ -17,7 +17,7 @@ type CartProductProps = {
 export const CartProduct = memo<CartProductProps>(
   ({ product, onRemoveItem }) => {
     return (
-      <StyledCartListItem>
+      <StyledCartListItem data-testid="cart-product">
         <StyledItemDescription>
           <StyledItemName>{product.name}</StyledItemName>
           <StyledItemCost>

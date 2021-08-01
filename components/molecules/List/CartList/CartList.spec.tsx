@@ -15,7 +15,7 @@ test("when cartItems is not empty list of items should be displayed", () => {
       description: "sofa",
       cost: 120,
       sofaType: "2-seat",
-      imgurl: "string",
+      imgurl: "/sofa.jpg",
       quantity: 1,
     },
     {
@@ -24,13 +24,12 @@ test("when cartItems is not empty list of items should be displayed", () => {
       description: "sofa",
       cost: 120,
       sofaType: "2-seat",
-      imgurl: "string",
+      imgurl: "/sofa.jpg",
       quantity: 2,
     },
   ];
 
   render(<CartList cartItems={fakeCartItems} />);
   expect(screen.queryByText(/cart is empty/i)).not.toBeInTheDocument();
-  expect(screen.getAllByRole("button", { name: /close/i })).toHaveLength(2);
-  expect(screen.getAllByText(/sofa/i)).toHaveLength(2);
+  expect(screen.getAllByTestId("cart-product")).toHaveLength(2);
 });
