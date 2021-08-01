@@ -15,7 +15,7 @@ type ProductProps = {
 export const ProductTile = memo<ProductProps>(({ product }) => {
   return (
     <Link href={`/products/${product.id}`} passHref>
-      <StyledProductTile>
+      <StyledProductTile data-testid="product-tile">
         <Image
           src={product.imgurl}
           width="100%"
