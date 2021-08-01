@@ -27,6 +27,7 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
               <CartProduct
                 onRemoveItem={handleRemoveFromCart}
                 product={cartItem}
+                key={cartItem.id}
               />
             );
           })
