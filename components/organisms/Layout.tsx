@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { titleTemplate as defaultTitleTemplate } from "../../pages/_app";
+import { titleTemplate as defaultTitleTemplate } from "pages/_app";
 import { Loader } from "components/organisms/Loader/Loader";
 import { NextSeo } from "next-seo";
 

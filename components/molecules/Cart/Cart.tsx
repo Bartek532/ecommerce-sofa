@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "context/CartContext";
-import { useWindowSize } from "../../../lib/utils/hooks";
+import { useWindowSize } from "lib/utils/hooks";
 import { CartList } from "components/molecules/List/CartList/CartList";
 import {
   StyledCartWrapper,
