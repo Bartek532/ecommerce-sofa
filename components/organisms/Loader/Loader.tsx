@@ -10,6 +10,7 @@ export const Loader = () => {
 
   return (
     <StyledSpinnerWrapper>
+      <span className="sr-only">Loading...</span>
       <StyledSpinner />
     </StyledSpinnerWrapper>
   );
