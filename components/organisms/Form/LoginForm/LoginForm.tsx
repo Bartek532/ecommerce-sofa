@@ -8,35 +8,37 @@ import Link from "next/link";
 import { StyledLink } from "components/atoms/Link/Link.styles";
 import { auth } from "lib/firebase";
 import { useMainContext } from "context/MainContext";
-
 import {
   StyledFormWrapper,
   StyledFormHeading,
   StyledForm,
   StyledLabel,
   StyledFormSignature,
-} from "./Form.styles";
+} from "../Form.styles";
+import { useEffect } from "react";
 
-export const RegisterForm = () => {
+import { useRouter } from "next/router";
+
+export const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
+
+  useEffect(() => {
+    auth.signOut();
+  }, []);
+
+  const router = useRouter();
 
   const { setLoading, setModal } = useMainContext();
 
-  const handleRegister = async ({ email, password }: UserData) => {
+  const handleLogin = async ({ email, password }: UserData) => {
     setLoading(true);
     try {
-      await auth.createUserWithEmailAndPassword(email, password);
-      setModal({
-        isOpen: true,
-        type: "success",
-        message: "Account was created. Log in!",
-      });
-      reset();
+      await auth.signInWithEmailAndPassword(email, password);
+      router.push("/");
     } catch (e) {
       setModal({ isOpen: true, type: "error", message: e?.message });
     } finally {
@@ -46,8 +48,8 @@ export const RegisterForm = () => {
 
   return (
     <StyledFormWrapper>
-      <StyledFormHeading>sign up</StyledFormHeading>
-      <StyledForm onSubmit={handleSubmit(handleRegister)}>
+      <StyledFormHeading>sign in</StyledFormHeading>
+      <StyledForm onSubmit={handleSubmit(handleLogin)}>
         <StyledLabel>
           <span className="sr-only">email</span>
           <StyledInput
@@ -56,24 +58,28 @@ export const RegisterForm = () => {
             autoComplete="email"
             {...register("email", inputValidation.email)}
           />
-          <StyledInputError>{errors?.email?.message}</StyledInputError>
+          <StyledInputError role="alert">
+            {errors?.email?.message}
+          </StyledInputError>
         </StyledLabel>
         <StyledLabel>
           <span className="sr-only">password</span>
           <StyledInput
             placeholder="Password"
             type="password"
-            autoComplete="new-password"
+            autoComplete="current-password"
             {...register("password", inputValidation.password)}
           />
-          <StyledInputError>{errors?.password?.message}</StyledInputError>
+          <StyledInputError role="alert">
+            {errors?.password?.message}
+          </StyledInputError>
         </StyledLabel>
-        <StyledButton>sign up</StyledButton>
+        <StyledButton>sign in</StyledButton>
       </StyledForm>
       <StyledFormSignature>
-        Already have an account?{" "}
-        <Link href="/login">
-          <StyledLink>Sign in</StyledLink>
+        Haven't got an account?{" "}
+        <Link href="/register">
+          <StyledLink>Sign up</StyledLink>
         </Link>
       </StyledFormSignature>
     </StyledFormWrapper>

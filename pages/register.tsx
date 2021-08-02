@@ -1,5 +1,5 @@
 import { Hero } from "components/organisms/Hero/Hero";
-import { RegisterForm } from "components/organisms/Form/RegisterForm";
+import { RegisterForm } from "components/organisms/Form/RegisterForm/RegisterForm";
 import styled from "styled-components";
 import { Layout } from "components/organisms/Layout";
 
