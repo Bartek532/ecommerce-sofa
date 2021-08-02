@@ -58,7 +58,9 @@ export const LoginForm = () => {
             autoComplete="email"
             {...register("email", inputValidation.email)}
           />
-          <StyledInputError>{errors?.email?.message}</StyledInputError>
+          <StyledInputError role="alert">
+            {errors?.email?.message}
+          </StyledInputError>
         </StyledLabel>
         <StyledLabel>
           <span className="sr-only">password</span>
@@ -68,7 +70,9 @@ export const LoginForm = () => {
             autoComplete="current-password"
             {...register("password", inputValidation.password)}
           />
-          <StyledInputError>{errors?.password?.message}</StyledInputError>
+          <StyledInputError role="alert">
+            {errors?.password?.message}
+          </StyledInputError>
         </StyledLabel>
         <StyledButton>sign in</StyledButton>
       </StyledForm>
