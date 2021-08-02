@@ -11,10 +11,12 @@ test("when color is changed page should be scrolled to the top", () => {
     sofaType: "2-seat",
     imgurl: "/sofa.jpg",
   };
-  const scroll = jest.spyOn(window, "scrollTo");
+  const mockedScrollFn = jest
+    .spyOn(window, "scrollTo")
+    .mockImplementationOnce(() => {});
   render(<ProductDescription product={fakeProduct} />);
   userEvent.click(screen.getByLabelText(/green/i));
 
-  expect(scroll).toHaveBeenCalled();
-  expect(scroll).toHaveBeenCalledWith(0, 0);
+  expect(mockedScrollFn).toHaveBeenCalled();
+  expect(mockedScrollFn).toHaveBeenCalledWith(0, 0);
 });
