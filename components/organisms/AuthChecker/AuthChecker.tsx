@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useRouter } from "next/router";
-import { Loader } from "./Loader/Loader";
+import { Loader } from "../Loader/Loader";
 import { useUser } from "lib/utils/hooks";
 
 type AuthCheckerProps = {

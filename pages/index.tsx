@@ -1,5 +1,5 @@
 import { Layout } from "components/organisms/Layout";
-import { AuthChecker } from "components/organisms/AuthChecker";
+import { AuthChecker } from "components/organisms/AuthChecker/AuthChecker";
 import { Main } from "components/organisms/Main/Main";
 import { DatoCMSData } from "lib/datocms";
 import type { Sofa } from "types";
