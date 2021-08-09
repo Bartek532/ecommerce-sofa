@@ -61,6 +61,7 @@ export const RegisterForm = () => {
         <StyledLabel>
           <span className="sr-only">password</span>
           <StyledInput
+            id="password"
             placeholder="Password"
             type="password"
             autoComplete="new-password"
@@ -68,7 +69,7 @@ export const RegisterForm = () => {
           />
           <StyledInputError>{errors?.password?.message}</StyledInputError>
         </StyledLabel>
-        <StyledButton>sign up</StyledButton>
+        <StyledButton id="submit">sign up</StyledButton>
       </StyledForm>
       <StyledFormSignature>
         Already have an account?{" "}

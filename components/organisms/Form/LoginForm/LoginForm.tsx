@@ -68,13 +68,14 @@ export const LoginForm = () => {
             placeholder="Password"
             type="password"
             autoComplete="current-password"
+            id="password"
             {...register("password", inputValidation.password)}
           />
           <StyledInputError role="alert">
             {errors?.password?.message}
           </StyledInputError>
         </StyledLabel>
-        <StyledButton>sign in</StyledButton>
+        <StyledButton id="submit">sign in</StyledButton>
       </StyledForm>
       <StyledFormSignature>
         Haven't got an account?{" "}

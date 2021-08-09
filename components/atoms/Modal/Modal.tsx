@@ -31,7 +31,11 @@ export const Modal = () => {
           {type === "error" ? "Oh snap!" : "Yeah!"}
         </StyledModalHeading>
         <StyledModalDescription>{message}</StyledModalDescription>
-        <StyledModalBtn color={type} onClick={handleCloseModal}>
+        <StyledModalBtn
+          color={type}
+          onClick={handleCloseModal}
+          id="close-modal"
+        >
           Close
         </StyledModalBtn>
       </StyledModalWindow>
