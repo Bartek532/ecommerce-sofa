@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "cy:open-only": "cypress open",
+    "cy:run-only": "cypress run",
+    "cy:open": "start-server-and-test dev 3000 cy:open-only",
+    "cy:run": "start-server-and-test dev 3000 cy:run-only"
   },
   "dependencies": {
     "datocms-client": "^3.4.9",
@@ -32,7 +36,10 @@
     "@types/react-select": "^4.0.15",
     "@types/styled-components": "^5.1.9",
     "babel-jest": "^27.0.6",
+    "cypress": "^8.1.0",
+    "faker": "^5.5.3",
     "jest": "^27.0.6",
+    "start-server-and-test": "^1.13.1",
     "typescript": "^4.2.4"
   }
 }

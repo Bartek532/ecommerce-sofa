@@ -2,7 +2,7 @@ import { HeroLink } from "components/atoms/Link/HeroLink/HeroLink";
 import { StyledButton } from "components/atoms/Button/Button.styles";
 import { auth } from "lib/firebase";
 import { useRouter } from "next/router";
-import { Cart } from "Cart/Cart";
+import { Cart } from "components/molecules/Cart/Cart";
 import {
   StyledHeader,
   StyledRightPannelWrapper,
