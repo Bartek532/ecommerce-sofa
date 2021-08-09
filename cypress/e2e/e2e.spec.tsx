@@ -16,6 +16,19 @@ describe("full app working", () => {
       .get("#password")
       .type(password)
       .get("#submit")
-      .click();
+      .click()
+      .get("#close-modal")
+      .click()
+      //login with new user
+      .visit("/login")
+      .get("#email")
+      .type(email)
+      .get("#password")
+      .type(password)
+      .get("#submit")
+      .click()
+      .wait(1000)
+      .url()
+      .should("eq", "http://localhost:3000/");
   });
 });
