@@ -20,7 +20,7 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
     useCart();
 
   return (
-    <StyledCheckoutListWrapper>
+    <StyledCheckoutListWrapper id="checkout-list">
       {cartItems.length ? (
         <StyledCheckoutList>
           {cartItems.map(cartItem => {

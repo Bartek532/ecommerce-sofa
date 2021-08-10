@@ -62,6 +62,18 @@ describe("full app working", () => {
       .click()
       .get("#cart-list")
       .find("li")
-      .should("have.length", 1);
+      .should("have.length", 1)
+      //go checkout!
+      .get("button")
+      .contains(/checkout/i)
+      .click()
+      .wait(1000)
+      .url()
+      .should("include", "/checkout")
+      .get("#checkout-list")
+      .find("li")
+      .should("have.length", 1)
+      .get("#pay-now-btn")
+      .should("not.be.disabled");
   });
 });
