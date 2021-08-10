@@ -27,8 +27,27 @@ describe("full app working", () => {
       .type(password)
       .get("#submit")
       .click()
-      .wait(1000)
+      .wait(1500)
+      //after login user should be redirected to home page
       .url()
-      .should("eq", "http://localhost:3000/");
+      .should("eq", "http://localhost:3000/")
+      //add products to cart
+      .get("main a")
+      .first()
+      .click()
+      .wait(5000)
+      .get("#add-to-cart-btn")
+      .click()
+      .get("#close-modal")
+      .click()
+      .go("back")
+      .get("main a")
+      .last()
+      .click()
+      .wait(5000)
+      .get("#add-to-cart-btn")
+      .click()
+      .get("#close-modal")
+      .click();
   });
 });

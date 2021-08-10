@@ -56,7 +56,7 @@ export const ProductDescription = memo<ProductDescriptionProps>(
 
         <StyledProductOperations>
           <StyledProductCost>${product.cost}</StyledProductCost>
-          <StyledButton onClick={handleAddProductToCart}>
+          <StyledButton onClick={handleAddProductToCart} id="add-to-cart-btn">
             Add to cart
           </StyledButton>
         </StyledProductOperations>
