@@ -48,6 +48,20 @@ describe("full app working", () => {
       .get("#add-to-cart-btn")
       .click()
       .get("#close-modal")
-      .click();
+      .click()
+      //added products should be in the cart
+      .get("#cart-btn")
+      .click()
+      .get("#cart-list")
+      .find("li")
+      .should("have.length", 2)
+      //remove one from the cart
+      .get("li")
+      .last()
+      .find("button")
+      .click()
+      .get("#cart-list")
+      .find("li")
+      .should("have.length", 1);
   });
 });

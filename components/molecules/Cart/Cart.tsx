@@ -16,7 +16,10 @@ export const Cart = () => {
   const { width } = useWindowSize();
   return (
     <StyledCartWrapper>
-      <StyledCartButton onClick={() => setIsCartOpen(open => !open)}>
+      <StyledCartButton
+        onClick={() => setIsCartOpen(open => !open)}
+        id="cart-btn"
+      >
         <Image
           src="/svg/cart.svg"
           width={width && width > 1100 ? "45" : "40"}

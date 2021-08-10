@@ -19,7 +19,7 @@ type CartListProps = {
 export const CartList = memo<CartListProps>(({ cartItems }) => {
   const { handleRemoveFromCart } = useCart();
   return (
-    <StyledCartListWrapper>
+    <StyledCartListWrapper id="cart-list">
       <StyledCartList>
         {cartItems.length ? (
           cartItems.map(cartItem => {
