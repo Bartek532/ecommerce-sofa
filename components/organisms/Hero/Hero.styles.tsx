@@ -6,7 +6,7 @@ type HeroProps = {
 
 export const StyledHeroWrapper = styled.section<HeroProps>`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: ${props => (props.isHome ? "space-around" : "center")};
   align-items: center;
