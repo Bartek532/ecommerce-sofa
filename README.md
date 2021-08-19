@@ -16,7 +16,7 @@ This app is a project for e-commerce furniture store. Made with [SSG](https://ww
 | [Typescript](https://www.typescriptlang.org/)                                          | Javascript superset language                                        |
 | [React](https://reactjs.org/)                                                          | Library for building user interfaces                                |
 | [Next](https://nextjs.org)                                                             | Powerful React Framework                                            |
-| [Context API](https://reactjs.org/docs/context.html)                                   | Alternative to React Redux                                          |
+| [Context API](https://reactjs.org/docs/context.html)                                   | React structure that enables to share data with multiple components                                          |
 | [SCSS](https://sass-lang.com)                                                          | CSS with superpowers                                                |
 | [Styled Components](https://styled-components.com)                                     | CSS-in-JS styling framework                                         |
 | [Firebase](https://firebase.google.com)                                                | Powerful for apps that don't use backend (e. g. for authentication) |
